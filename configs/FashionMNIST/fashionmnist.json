@@ -15,11 +15,12 @@
         "target_accuracy": 0.99,
         "task": "train",
         "epochs": 5,
-        "batch_size": 10
+        "batch_size": 10,
+        "lr": 0.01
     },
-    "model": "FashionMNIST",
+    "dataset": "FashionMNIST",
     "paths": {
-        "data": "./data",
+        "data": "./dataset",
         "model": "./models"
     },
     "server": "basic"
