@@ -87,6 +87,9 @@ class MNIST(BuiltinTorchDataset):
 
 
 class CHMNIST(BuiltinTorchDataset):
+    """
+    Dataset: https://www.kaggle.com/datasets/gpreda/chinese-mnist
+    """
     pass
 
 
