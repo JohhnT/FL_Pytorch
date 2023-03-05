@@ -1,11 +1,15 @@
+import os
+import torch
 from torchvision import datasets, transforms
 from torch.utils.data import random_split, DataLoader, Subset
 from torch._utils import _accumulate
 import random
 import numpy as np
+import pandas as pd
+import cv2
 
 
-class DownloadableDataset:
+class BuiltinTorchDataset:
     def __init__(self, config):
         self.config = config
         print(self.config.paths.data)
@@ -70,16 +74,20 @@ class DownloadableDataset:
             return trainset, testset
 
 
-class FashionMNIST(DownloadableDataset):
+class FashionMNIST(BuiltinTorchDataset):
     def __init__(self, config):
         super().__init__(config)
         self.Dataset = datasets.FashionMNIST
 
 
-class MNIST(DownloadableDataset):
+class MNIST(BuiltinTorchDataset):
     def __init__(self, config):
         super().__init__(config)
         self.Dataset = datasets.MNIST
+
+
+class CHMNIST(BuiltinTorchDataset):
+    pass
 
 
 def get_data(dataset, config):
@@ -87,3 +95,6 @@ def get_data(dataset, config):
         return MNIST(config).load_data(IID=config.data.IID)
     elif dataset == "FashionMNIST":
         return FashionMNIST(config).load_data(IID=config.data.IID)
+    elif dataset == "CHMNIST":
+        # NOT IMPLEMENTED
+        return CHMNIST(config).load_data(IID=config.data.IID)
