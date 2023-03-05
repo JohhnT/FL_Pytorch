@@ -5,7 +5,7 @@ import random
 import numpy as np
 
 
-class DataSet:
+class DownloadableDataset:
     def __init__(self, config):
         self.config = config
         print(self.config.paths.data)
@@ -55,7 +55,7 @@ class DataSet:
         return None, None
 
 
-class FashionMNIST(DataSet):
+class FashionMNIST(DownloadableDataset):
     def __init__(self, config):
         super().__init__(config)
 
@@ -74,7 +74,7 @@ class FashionMNIST(DataSet):
         return trainset, testset
 
 
-class MNIST(DataSet):
+class MNIST(DownloadableDataset):
     def __init__(self, config):
         self.config = config
         print(self.config.paths.data)
