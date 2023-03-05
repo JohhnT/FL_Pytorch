@@ -12,6 +12,7 @@ class DownloadableDataset:
         self.path = str(self.config.paths.data) + '/' + self.config.dataset
         self.trainset = None
         self.testset = None
+        self.Dataset = None
 
     def load_data(self, IID=True):
         self.trainset, self.testset = self.download_data()
@@ -52,49 +53,33 @@ class DownloadableDataset:
             return self.trainset, self.testset
 
     def download_data(self):
-        return None, None
+        if self.Dataset is None:
+            return None, None
+        else:
+            trainset = self.Dataset(
+                self.path, train=True, download=True, transform=transforms.Compose([
+                    transforms.RandomRotation(15),
+                    transforms.ToTensor(),
+                    transforms.Normalize((0.1307,), (0.3081,))
+                ]))
+            testset = self.Dataset(
+                self.path, train=False, transform=transforms.Compose([
+                    transforms.ToTensor(),
+                    transforms.Normalize((0.1307,), (0.3081,))
+                ]))
+            return trainset, testset
 
 
 class FashionMNIST(DownloadableDataset):
     def __init__(self, config):
         super().__init__(config)
-
-    def download_data(self, IID=True):
-        trainset = datasets.FashionMNIST(
-            self.path, train=True, download=True, transform=transforms.Compose([
-                transforms.RandomRotation(15),
-                transforms.ToTensor(),
-                transforms.Normalize((0.1307,), (0.3081,))
-            ]))
-        testset = datasets.FashionMNIST(
-            self.path, train=False, transform=transforms.Compose([
-                transforms.ToTensor(),
-                transforms.Normalize((0.1307,), (0.3081,))
-            ]))
-        return trainset, testset
+        self.Dataset = datasets.FashionMNIST
 
 
 class MNIST(DownloadableDataset):
     def __init__(self, config):
-        self.config = config
-        print(self.config.paths.data)
-        self.path = str(self.config.paths.data) + '/' + self.config.dataset
-        self.trainset = None
-        self.testset = None
-
-    def download_data(self, IID=True):
-        trainset = datasets.MNIST(
-            self.path, train=True, download=True, transform=transforms.Compose([
-                transforms.RandomRotation(15),
-                transforms.ToTensor(),
-                transforms.Normalize((0.1307,), (0.3081,))
-            ]))
-        testset = datasets.MNIST(
-            self.path, train=False, transform=transforms.Compose([
-                transforms.ToTensor(),
-                transforms.Normalize((0.1307,), (0.3081,))
-            ]))
-        return trainset, testset
+        super().__init__(config)
+        self.Dataset = datasets.MNIST
 
 
 def get_data(dataset, config):
