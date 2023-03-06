@@ -3,26 +3,34 @@ import torch
 from torchvision import datasets, transforms
 from torch.utils.data import random_split, DataLoader, Subset
 from torch._utils import _accumulate
+from utils.datasets import CHMNISTDataset
 import random
 import numpy as np
 import pandas as pd
 import cv2
 
 
-class BuiltinTorchDataset:
+class FLDataset:
     def __init__(self, config):
         self.config = config
         print(self.config.paths.data)
         self.path = str(self.config.paths.data) + '/' + self.config.dataset
         self.trainset = None
         self.testset = None
-        self.Dataset = None
+
+    def download_data(self):
+        pass
 
     def load_data(self, IID=True):
         self.trainset, self.testset = self.download_data()
         if self.trainset is not None and self.testset is not None:
             total_clients = self.config.clients.total
-            total_sample = self.trainset.data.shape[0]
+            try:
+                # builtin torch dataset
+                total_sample = self.trainset.data.shape[0]
+            except:
+                # CHMNIST
+                total_sample = len(self.trainset)
             # number of samples on each client
             length = [total_sample // total_clients] * total_clients
             if IID:
@@ -56,6 +64,12 @@ class BuiltinTorchDataset:
         else:
             return self.trainset, self.testset
 
+
+class BuiltinTorchDataset(FLDataset):
+    def __init__(self, config):
+        super().__init__(config)
+        self.Dataset = None
+
     def download_data(self):
         if self.Dataset is None:
             return None, None
@@ -86,11 +100,42 @@ class MNIST(BuiltinTorchDataset):
         self.Dataset = datasets.MNIST
 
 
-class CHMNIST(BuiltinTorchDataset):
+class CHMNIST(FLDataset):
     """
     Dataset: https://www.kaggle.com/datasets/gpreda/chinese-mnist
     """
-    pass
+
+    def download_data(self):
+        """
+        Resource: https://www.kaggle.com/code/stpeteishii/chinese-mnist-classify-torch-linear
+        """
+        data_dir = "{}/data/data".format(self.path)
+        classes = os.listdir(data_dir)
+        labels = pd.read_csv("{}/chinese_mnist.csv".format(self.path))
+        labels['file'] = labels[['sample_id', 'code']].apply(
+            lambda x: 'input_100_'+x['sample_id'].astype(str)+'_'+x['code'].astype(str)+'.jpg', axis=1)
+
+        dataset = []
+        for i in range(len(labels)):
+            codei = labels.loc[i, 'code']
+            filei = labels.loc[i, 'file']
+            path = os.path.join(data_dir, filei)
+            image = cv2.imread(path)
+            image = image.astype(np.float32)
+            image2 = torch.from_numpy(image)
+            dataset += [[image2, codei-1]]
+
+        random.shuffle(dataset)
+
+        train_size = int(0.8 * len(dataset))
+        test_size = len(dataset) - train_size
+        train_set, test_set = random_split(dataset, [train_size, test_size])
+
+        # Convert each set to a PyTorch Dataset object
+        trainset = CHMNISTDataset(train_set)
+        testset = CHMNISTDataset(test_set)
+
+        return trainset, testset
 
 
 def get_data(dataset, config):
