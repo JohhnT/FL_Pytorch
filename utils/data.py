@@ -1,13 +1,14 @@
 import os
 import torch
 from torchvision import datasets, transforms
-from torch.utils.data import random_split, DataLoader, Subset
+from torch.utils.data import random_split, Subset, TensorDataset
 from torch._utils import _accumulate
 from utils.datasets import CHMNISTDataset
 import random
 import numpy as np
 import pandas as pd
 import cv2
+from sklearn.model_selection import train_test_split
 
 
 class FLDataset:
@@ -110,7 +111,6 @@ class CHMNIST(FLDataset):
         Resource: https://www.kaggle.com/code/stpeteishii/chinese-mnist-classify-torch-linear
         """
         data_dir = "{}/data/data".format(self.path)
-        classes = os.listdir(data_dir)
         labels = pd.read_csv("{}/chinese_mnist.csv".format(self.path))
         labels['file'] = labels[['sample_id', 'code']].apply(
             lambda x: 'input_100_'+x['sample_id'].astype(str)+'_'+x['code'].astype(str)+'.jpg', axis=1)
@@ -138,11 +138,43 @@ class CHMNIST(FLDataset):
         return trainset, testset
 
 
+class BreastCancer(FLDataset):
+    """
+    Dataset: https://www.kaggle.com/datasets/uciml/breast-cancer-wisconsin-data
+    """
+
+    def download_data(self):
+        """
+        Resource: https://www.kaggle.com/code/gamerplayer/cancer-detection-using-pytorch
+        """
+        data = pd.read_csv("{}/data.csv".format(self.path))
+
+        data.drop(['id', data.columns[-1]], axis=1, inplace=True)
+        data['diagnosis'] = data['diagnosis'].astype(
+            'category').cat.as_ordered()
+        Y = data['diagnosis'].cat.codes
+        X = data[data.columns[1:-1]]
+        X = (X-X.mean())/X.std()
+        X = torch.from_numpy(X.to_numpy())
+        X = X.float()
+        Y = torch.from_numpy(Y.to_numpy().copy())
+
+        X_train, X_test, Y_train, Y_test = train_test_split(
+            X, Y, test_size=0.12)
+
+        trainset = TensorDataset(torch.Tensor(
+            np.array(X_train)), torch.Tensor(np.array(Y_train)))
+        testset = TensorDataset(torch.Tensor(
+            np.array(X_test)), torch.Tensor(np.array(Y_test)))
+        return trainset, testset
+
+
 def get_data(dataset, config):
     if dataset == "MNIST":
         return MNIST(config).load_data(IID=config.data.IID)
     elif dataset == "FashionMNIST":
         return FashionMNIST(config).load_data(IID=config.data.IID)
     elif dataset == "CHMNIST":
-        # NOT IMPLEMENTED
         return CHMNIST(config).load_data(IID=config.data.IID)
+    elif dataset == "BreastCancer":
+        return BreastCancer(config).load_data(IID=config.data.IID)

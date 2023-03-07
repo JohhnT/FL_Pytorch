@@ -9,6 +9,8 @@ def get_model(dataset_name):
         return FashionMnist_Net()
     elif dataset_name == "CHMNIST":
         return CHMnist_Net(3*64*64, 15)
+    elif dataset_name == "BreastCancer":
+        return BreastCancer_Net()
 
 
 class FashionMnist_Net(nn.Module):
@@ -65,3 +67,29 @@ class CHMnist_Net(nn.Module):
         x = self.hidden1(F.relu(x))
         x = self.out_layer(F.relu(x))
         return x
+
+
+class BreastCancer_Net(nn.Module):
+    def __init__(self, i_dim=29, o_dim=2):
+        super(BreastCancer_Net, self).__init__()
+        self.layer1 = nn.Sequential(
+            nn.Linear(i_dim, 128),
+            nn.ReLU(),
+            nn.Linear(128, 64),
+            nn.Tanh()
+
+
+        )
+        self.layer2 = nn.Sequential(
+            nn.Linear(64, 16),
+            nn.ReLU()
+
+        )
+        self.layer3 = nn.Linear(16, o_dim)
+        self.output = nn.LogSoftmax()
+
+    def forward(self, x):
+        x = self.layer1(x)
+        x = self.layer2(x)
+        x = self.layer3(x)
+        return self.output(x)

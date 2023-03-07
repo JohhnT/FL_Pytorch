@@ -21,7 +21,8 @@ class Client:
         self.len_dataset = []
 
     def load_data(self):
-        self.trainset, self.testset = get_data(self.config.dataset, self.config)
+        self.trainset, self.testset = get_data(
+            self.config.dataset, self.config)
         for subset in self.trainset:
             loader = DataLoader(subset, batch_size=self.config.fl.batch_size)
             self.dataloaders.append(loader)
@@ -51,7 +52,8 @@ class Client:
                 labels = labels.to(device)
                 optimizer.zero_grad()
                 outputs = model(inputs)
-                loss = criterion(outputs, labels)
+                # loss = criterion(outputs, labels)
+                loss = criterion(outputs, labels.type(torch.LongTensor))
                 _, preds = torch.max(outputs, 1)
                 loss.backward()
                 optimizer.step()
@@ -61,7 +63,8 @@ class Client:
             epoch_loss = running_loss / len(dataloaders.dataset)
             epoch_acc = int(running_corrects) / len(dataloaders.dataset)
 
-            logging.debug('User {}: {} Loss: {:.4f} Acc: {:.4f}'.format(user_id, "training", epoch_loss, epoch_acc))
+            logging.debug('User {}: {} Loss: {:.4f} Acc: {:.4f}'.format(
+                user_id, "training", epoch_loss, epoch_acc))
         # need be locked
         lock = threading.Lock()
         lock.acquire()
@@ -109,7 +112,8 @@ class Client:
             inputs = inputs.to(device)
             labels = labels.to(device)
             outputs = model(inputs)
-            loss = criterion(outputs, labels)
+            # loss = criterion(outputs, labels)
+            loss = criterion(outputs, labels.type(torch.LongTensor))
             _, preds = torch.max(outputs, 1)
             test_loss += loss.item() * inputs.size(0)
             corrects += torch.sum(preds == labels.data)
