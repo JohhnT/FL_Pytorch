@@ -31,9 +31,9 @@ class Server:
             if self.config.fl.rule == 'krum':
                 glob_weights = self.krum(info)
             elif self.config.fl.rule == 'trimmed_mean':
-                glob_weights = self.fed_avg(info)
+                glob_weights = self.trimmed_mean(info)
             elif self.config.fl.rule == 'median':
-                glob_weights = self.fed_avg(info)
+                glob_weights = self.median(info)
             else:  # default to fed_avg
                 glob_weights = self.fed_avg(info)
             self.model.load_state_dict(glob_weights)
@@ -60,8 +60,11 @@ class Server:
             w_avg[k] = w_avg[k] / (sum(length))
         return w_avg
 
-    def krum(self, info):
-        worst_nodes = 2  # k farthest nodes
+    def krum(self, info, k_param=2):
+        """
+        krum aggregation rule
+        k_param: number of farthest nodes to be excluded
+        """
         weights = info["weights"]
         num_nodes = len(weights)
         key_params = weights[0].keys()
@@ -84,14 +87,42 @@ class Server:
                 continue
             sorted_indices = np.argsort(distances[i])
             krum_distances = np.sum(
-                distances[i][sorted_indices[:num_nodes - worst_nodes]])
+                distances[i][sorted_indices[:num_nodes - k_param]])
             krum_scores[i] = krum_distances
 
         selected_index = np.argmin(krum_scores)
         return weights[selected_index]
 
-    def trimmed_mean(self, info):
-        return self.fed_avg(info)
+    def trimmed_mean(self, info, beta=0.1):
+        """
+        Trimmed mean aggregation rule
+        beta: parameter for trimmed mean
+        """
+        weights = info["weights"]
+        length = info["len"]
+        key_params = weights[0].keys()
+
+        num_to_trim = int(np.ceil(len(weights) * beta))
+
+        # Compute the L2-norm of each weight tensor
+        norms = [np.linalg.norm(np.concatenate([w[k].flatten()
+                                for k in key_params])) for w in weights]
+
+        # Sort the weights based on their L2-norm magnitude
+        sorted_indices = np.argsort(norms)
+        sorted_weights = [weights[i] for i in sorted_indices]
+
+        # Trim the extreme weights
+        trimmed_weights = sorted_weights[num_to_trim:-num_to_trim]
+
+        # Calculate avg of the rest
+        w_avg = copy.deepcopy(trimmed_weights[0])
+        for k in w_avg.keys():
+            w_avg[k] *= length[0]
+            for i in range(1, len(trimmed_weights)):
+                w_avg[k] += trimmed_weights[i][k] * length[i]
+            w_avg[k] = w_avg[k] / (sum(length))
+        return w_avg
 
     def median(self, info):
         return self.fed_avg(info)

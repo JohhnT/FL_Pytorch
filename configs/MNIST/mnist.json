@@ -1,7 +1,7 @@
 {
     "clients": {
         "total": 100,
-        "fraction": 0.1
+        "fraction": 1
     },
     "data": {
         "loading": "static",
@@ -11,11 +11,12 @@
         "IID": false
     },
     "federated_learning": {
+        "rule": "trimmed_mean",
         "rounds": 1000,
         "target_accuracy": 0.99,
         "task": "train",
         "epochs": 5,
-        "batch_size":10,
+        "batch_size": 10,
         "lr": 0.01
     },
     "dataset": "MNIST",
