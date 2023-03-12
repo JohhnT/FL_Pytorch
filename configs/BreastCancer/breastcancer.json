@@ -11,7 +11,7 @@
         "IID": true
     },
     "federated_learning": {
-        "rule": "trimmed_mean",
+        "rule": "median",
         "rounds": 10000,
         "target_accuracy": 0.99,
         "task": "train",

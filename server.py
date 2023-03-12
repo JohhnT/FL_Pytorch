@@ -125,7 +125,33 @@ class Server:
         return w_avg
 
     def median(self, info):
-        return self.fed_avg(info)
+        """
+        Median aggregation rule
+        """
+        weights = info["weights"]
+        key_params = weights[0].keys()
+
+        # Compute the L2-norm of each weight tensor
+        norms = [np.linalg.norm(np.concatenate([w[k].flatten()
+                                for k in key_params])) for w in weights]
+
+        # Sort the weights based on their L2-norm magnitude
+        sorted_indices = np.argsort(norms)
+        sorted_weights = [weights[i] for i in sorted_indices]
+
+        # compute median update
+        n = len(sorted_weights)
+        median_idx = n // 2
+
+        if n % 2 == 0:
+            median_weight = copy.deepcopy(sorted_weights[median_idx])
+            for k in sorted_weights[0].keys():
+                median_weight[k] = (
+                    sorted_weights[median_idx - 1][k] + sorted_weights[median_idx][k]) / 2
+        else:
+            median_weight = sorted_weights[median_idx]
+
+        return copy.deepcopy(median_weight)
 
     def clients_selection(self):
         # randomly selection
