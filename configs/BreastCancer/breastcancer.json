@@ -1,7 +1,7 @@
 {
     "clients": {
         "total": 100,
-        "fraction": 0.1
+        "fraction": 1
     },
     "data": {
         "loading": "static",
@@ -11,6 +11,7 @@
         "IID": true
     },
     "federated_learning": {
+        "rule": "krum",
         "rounds": 10000,
         "target_accuracy": 0.99,
         "task": "train",

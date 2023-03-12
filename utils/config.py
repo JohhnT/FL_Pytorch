@@ -28,7 +28,7 @@ class Config(object):
                   for i, field in enumerate(fields)]
         self.clients = namedtuple('clients', fields)(*params)
 
-        assert 0 < self.clients.fraction < 1
+        assert 0 < self.clients.fraction <= 1
 
         # -- Data --
         fields = ['loading', 'partition', 'IID', 'bias', 'shard']
@@ -38,8 +38,9 @@ class Config(object):
         self.data = namedtuple('data', fields)(*params)
 
         # -- Federated learning --
-        fields = ['rounds', 'target_accuracy', 'task', 'epochs', 'batch_size', 'lr']
-        defaults = (0, None, 'train', 0, 0, 0.01)
+        fields = ['rule', 'rounds', 'target_accuracy',
+                  'task', 'epochs', 'batch_size', 'lr']
+        defaults = ('fed_avg', 0, None, 'train', 0, 0, 0.01)
         params = [config['federated_learning'].get(field, defaults[i])
                   for i, field in enumerate(fields)]
         self.fl = namedtuple('fl', fields)(*params)
@@ -63,4 +64,4 @@ class Config(object):
 
 if __name__ == "__main__":
     config = Config("configs/MNIST/mnist.json")
-    print(config.data.IID)
+    # print(config.data.IID)

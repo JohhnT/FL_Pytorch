@@ -26,9 +26,16 @@ class Server:
             logging.info("selected clients:{}".format(selected))
             info = self.clients.train(selected)
 
-            logging.info("aggregate weights")
+            logging.info(f"aggregate weights ({self.config.fl.rule})")
             # update glob model
-            glob_weights = self.fed_avg(info)
+            if self.config.fl.rule == 'krum':
+                glob_weights = self.krum(info)
+            elif self.config.fl.rule == 'trimmed_mean':
+                glob_weights = self.fed_avg(info)
+            elif self.config.fl.rule == 'median':
+                glob_weights = self.fed_avg(info)
+            else:  # default to fed_avg
+                glob_weights = self.fed_avg(info)
             self.model.load_state_dict(glob_weights)
             train_acc = self.getacc(info)
             test_acc, test_loss = self.test()
@@ -53,11 +60,48 @@ class Server:
             w_avg[k] = w_avg[k] / (sum(length))
         return w_avg
 
+    def krum(self, info):
+        worst_nodes = 2  # k farthest nodes
+        weights = info["weights"]
+        num_nodes = len(weights)
+        key_params = weights[0].keys()
+
+        distances = np.zeros((num_nodes, num_nodes))
+        for i in range(num_nodes):
+            for j in range(i + 1, num_nodes):
+                distance = 0
+                for k in key_params:
+                    distance += torch.norm(
+                        torch.cat([weights[i][k].flatten(), weights[j][k].flatten()]), p=2)
+                distance = np.sqrt(distance)
+                distances[i][j] = distance
+                distances[j][i] = distance
+
+        krum_scores = np.zeros(num_nodes)
+        for i in range(num_nodes):
+            if not weights[i]:
+                # Skip empty weight tensors
+                continue
+            sorted_indices = np.argsort(distances[i])
+            krum_distances = np.sum(
+                distances[i][sorted_indices[:num_nodes - worst_nodes]])
+            krum_scores[i] = krum_distances
+
+        selected_index = np.argmin(krum_scores)
+        return weights[selected_index]
+
+    def trimmed_mean(self, info):
+        return self.fed_avg(info)
+
+    def median(self, info):
+        return self.fed_avg(info)
+
     def clients_selection(self):
         # randomly selection
         frac = self.config.clients.fraction
         n_clients = max(1, int(self.config.clients.total * frac))
-        training_clients = np.random.choice(self.client_index, n_clients, replace=False)
+        training_clients = np.random.choice(
+            self.client_index, n_clients, replace=False)
         return training_clients
 
     def load_model(self):
