@@ -8,11 +8,11 @@ from utils import config
 # Set up parser
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument('-c', '--config', type=str, default='./configs/MNIST/mnist.json',
+    parser.add_argument('-c', '--config', type=str, default='./configs/BreastCancer/breastcancer.json',
                         help='Federated learning configuration file.')
     parser.add_argument('-l', '--log', type=str, default='INFO',
                         help='Log messages level.')
-    parser.add_argument('-d', '--dataset', type=str, default='MNIST',
+    parser.add_argument('-d', '--dataset', type=str, default='BreastCancer',
                         help='the name of dataset')
 
     args = parser.parse_args()
