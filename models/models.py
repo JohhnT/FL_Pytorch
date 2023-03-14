@@ -72,24 +72,36 @@ class CHMnist_Net(nn.Module):
 class BreastCancer_Net(nn.Module):
     def __init__(self, i_dim=29, o_dim=2):
         super(BreastCancer_Net, self).__init__()
+        self.i_dim = i_dim
         self.layer1 = nn.Sequential(
-            nn.Linear(i_dim, 128),
-            nn.ReLU(),
-            nn.Linear(128, 64),
-            nn.Tanh()
-
-
-        )
-        self.layer2 = nn.Sequential(
-            nn.Linear(64, 16),
+            nn.Conv2d(in_channels=1, out_channels=30,
+                      kernel_size=(1, 3), padding=(1, 1)),
             nn.ReLU()
-
         )
-        self.layer3 = nn.Linear(16, o_dim)
-        self.output = nn.LogSoftmax()
+        self.layer2 = nn.MaxPool2d(kernel_size=(2, 2))
+        self.layer3 = nn.Sequential(
+            nn.Conv2d(in_channels=30, out_channels=50,
+                      kernel_size=(3, 3), padding=(1, 1)),
+            nn.ReLU()
+        )
+        self.layer4 = nn.MaxPool2d(kernel_size=(2, 2), padding=(1, 0))
+        self.layer5 = nn.Sequential(
+            nn.Linear(in_features=50 * 7, out_features=200),
+            nn.ReLU()
+        )
+        self.layer6 = nn.Sequential(
+            nn.Linear(in_features=200, out_features=o_dim),
+            nn.Softmax(dim=1)
+        )
 
     def forward(self, x):
+        x = x.view(-1, 1, 1, self.i_dim)
         x = self.layer1(x)
+        x = x.view(x.size(0), 30, -1, self.i_dim)
         x = self.layer2(x)
         x = self.layer3(x)
-        return self.output(x)
+        x = self.layer4(x)
+        x = x.view(x.size(0), -1)
+        x = self.layer5(x)
+        x = self.layer6(x)
+        return x
