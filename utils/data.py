@@ -14,7 +14,7 @@ from sklearn.model_selection import train_test_split
 class FLDataset:
     def __init__(self, config):
         self.config = config
-        print(self.config.paths.data)
+        # print(self.config.paths.data)
         self.path = str(self.config.paths.data) + '/' + self.config.dataset
         self.trainset = None
         self.testset = None
@@ -38,7 +38,7 @@ class FLDataset:
                 spilted_train = random_split(self.trainset, length)
 
             else:
-                print("None-IID")
+                # print("None-IID")
                 if sum(length) != len(self.trainset):
                     raise ValueError(
                         "Sum of input lengths does not equal the length of the input dataset!")
@@ -56,11 +56,11 @@ class FLDataset:
 
                 np.random.shuffle(indices)
                 indices = indices.flatten()
-                print(indices.shape)
+                # print(indices.shape)
 
                 spilted_train = [Subset(self.trainset, indices[offset - length:offset]) for offset, length in
                                  zip(_accumulate(length), length)]
-                print(len(spilted_train))
+                # print(len(spilted_train))
             return spilted_train, self.testset
         else:
             return self.trainset, self.testset
