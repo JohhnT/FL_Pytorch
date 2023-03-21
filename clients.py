@@ -14,6 +14,7 @@ class Client:
         self.num = self.config.clients.total
         self.compromised = self.config.clients.compromised
         self.compromised_id = [i for i in range(0, self.compromised)]
+        self.benign_iteration = [None for _ in range(0, self.compromised)]
         self.compromised_attack = self.config.clients.compromised_attack
         self.client_id = [i for i in range(self.compromised, self.num)]
         self.model = None
@@ -46,8 +47,28 @@ class Client:
         """
         Compromised client's local train function
         """
-        print(f"Skip attack: {self.compromised_attack}")
-        self.benign_local_train(user_id, dataloaders, verbose)
+        if self.benign_iteration[user_id]:
+
+            #
+            benign_iter = self.benign_iteration[user_id]
+            model, epoch_loss, running_corrects, len_dataset = benign_iter["model"], benign_iter[
+                "epoch_loss"], benign_iter["running_corrects"], benign_iter["len_dataset"]
+            lock = threading.Lock()
+            lock.acquire()
+            self.weights.append(model)
+            self.epoch_loss.append(epoch_loss)
+            self.running_corrects.append(running_corrects)
+            self.len_dataset.append(len_dataset)
+            lock.release()
+        else:
+            model, epoch_loss, running_corrects, len_dataset = self.benign_local_train(
+                user_id, dataloaders, verbose)
+            self.benign_iteration[user_id] = {
+                "model": model,
+                "epoch_loss": epoch_loss,
+                "running_corrects": running_corrects,
+                "len_dataset": len_dataset
+            }
 
     def benign_local_train(self, user_id, dataloaders, verbose=1):
         """
@@ -92,6 +113,8 @@ class Client:
         self.running_corrects.append(int(running_corrects))
         self.len_dataset.append(len(dataloaders.dataset))
         lock.release()
+
+        return copy.deepcopy(model.state_dict()), epoch_loss, int(running_corrects), len(dataloaders.dataset)
 
     def upload(self, info):
         return info

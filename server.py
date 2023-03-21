@@ -91,6 +91,7 @@ class Server:
             krum_scores[i] = krum_distances
 
         selected_index = np.argmin(krum_scores)
+        logging.info(f"Selected client id: {selected_index}")
         return weights[selected_index]
 
     def trimmed_mean(self, info, beta=0.1):
