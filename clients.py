@@ -12,7 +12,10 @@ class Client:
     def __init__(self, config):
         self.config = config
         self.num = self.config.clients.total
-        self.client_id = [i for i in range(0, self.num)]
+        self.compromised = self.config.clients.compromised
+        self.compromised_id = [i for i in range(0, self.compromised)]
+        self.compromised_attack = self.config.clients.compromised_attack
+        self.client_id = [i for i in range(self.compromised, self.num)]
         self.model = None
         self.dataloaders = []
         self.weights = []
@@ -28,12 +31,28 @@ class Client:
             self.dataloaders.append(loader)
 
     def clients_to_server(self):
-        return self.client_id
+        return self.compromised_id + self.client_id
 
     def get_model(self, model):
         self.model = model
 
     def local_train(self, user_id, dataloaders, verbose=1):
+        if user_id in self.compromised_id:
+            self.malicious_local_train(user_id, dataloaders, verbose)
+        else:
+            self.benign_local_train(user_id, dataloaders, verbose)
+
+    def malicious_local_train(self, user_id, dataloaders, verbose=1):
+        """
+        Compromised client's local train function
+        """
+        print(f"Skip attack: {self.compromised_attack}")
+        self.benign_local_train(user_id, dataloaders, verbose)
+
+    def benign_local_train(self, user_id, dataloaders, verbose=1):
+        """
+        Benign client's local train function
+        """
         device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
         model = copy.deepcopy(self.model)
         model.to(device)

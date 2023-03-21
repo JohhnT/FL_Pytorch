@@ -22,8 +22,8 @@ class Config(object):
 
         # -- Clients --
         fields = ['total', 'fraction', 'label_distribution',
-                  'do_test', 'test_partition']
-        defaults = (0, 0, 'uniform', False, None)
+                  'do_test', 'test_partition', 'compromised', 'compromised_attack']
+        defaults = (0, 0, 'uniform', False, None, 0, 'krum')
         params = [config['clients'].get(field, defaults[i])
                   for i, field in enumerate(fields)]
         self.clients = namedtuple('clients', fields)(*params)
