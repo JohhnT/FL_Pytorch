@@ -119,10 +119,13 @@ class Client:
         # by considering the worst-case scenario
         # where the attacker can control all the target clients
         # and inject arbitrary model updates.
-        # max_update_norm = max([np.linalg.norm(update) for update in poisoned_updates])
-        # max_weight_norm = max([np.linalg.norm(weight) for weight in target_clients.weights])
-        # return max_update_norm / max_weight_norm
-        pass
+        # poisoned_updated ~ ?
+        max_update_norm = max([np.linalg.norm(update)
+                              for update in poisoned_updates])
+        # target_clients ~ self.benign_iteration
+        max_weight_norm = max([np.linalg.norm(weight)
+                              for weight in target_clients.weights])
+        return max_update_norm / max_weight_norm
 
     def compute_optimized_lambda(self):
         """
@@ -131,22 +134,20 @@ class Client:
             subject to w1' = Krum(w1', w1, ..., wc),
                        w1' = wRe - lambda * s
         """
-
-        # SAMPLE
-        # Find the optimal value of lambda
-        # that maximizes the attacker's utility function
-        # while ensuring that the optimization problem is well-defined.
-        # lambda_upperbound = find_lambda_upperbound(target_clients, poisoned_updates)
-        # lambda_lowerbound = 0
-        # while lambda_upperbound - lambda_lowerbound > tol:
-        #     lambda_guess = (lambda_lowerbound + lambda_upperbound) / 2
-        #     utility_guess = utility_function(target_clients, poisoned_updates, lambda_guess)
-        #     if utility_guess > desired_utility:
-        #         lambda_lowerbound = lambda_guess
-        #     else:
-        #         lambda_upperbound = lambda_guess
-        # return (lambda_lowerbound + lambda_upperbound) / 2
-        pass
+        upperbound = self.compute_lambda_upperbound()
+        lowerbound = 0
+        # simple binary search
+        while upperbound - lowerbound > tol:
+            guess = (upperbound + lowerbound) / 2  # binary search
+            # guess -> desired_krum = w1' = wRe - guess * s
+            desired_krum = 0
+            # benign iteration updates, current clients updates
+            krum_guess = self.krum_guess_fn()
+            if krum_guess > desired_krum:
+                lowerbound = guess
+            else:
+                upperbound = guess
+        return (upperbound + lowerbound) / 2
 
     def compute_direction_change(self):
         glob_weights = copy.deepcopy(self.model.state_dict())
