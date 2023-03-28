@@ -57,7 +57,7 @@ class Client:
 
         # key steps
         # 1. compute mean of compromised clients' benign updates (done)
-        # 2. compute direction deviating from self.model
+        # 2. compute direction deviating from self.model (done)
         # 3. find optimised lambda
         # 4. find w1 (malicious)
         # 5. randomly select w2..wc
@@ -106,10 +106,57 @@ class Client:
 
         self.compromised_round_updates += 1
 
+    def compute_lambda_upperbound(self):
+        """
+        Formula: lambda <= 1 / ((m - 2c - 1)sqrt(d)) * min<c + 1 <= i <= m>(Sum<?>(D(wl, wi))) + 1 / sqrt(d) * max<c + 1 <= i <= m>(D(wi, wRe))
+        Where: 
+            d is the number of parameters in global model, D(wl, wi) is the Euclidean distance between wl and wi,
+            l <- <?> is the set of m - c - 2 benign local models that have the smallest Euclidean distance to wi.
+        """
+
+        # SAMPLE
+        # Derive an upper bound on lambda
+        # by considering the worst-case scenario
+        # where the attacker can control all the target clients
+        # and inject arbitrary model updates.
+        # max_update_norm = max([np.linalg.norm(update) for update in poisoned_updates])
+        # max_weight_norm = max([np.linalg.norm(weight) for weight in target_clients.weights])
+        # return max_update_norm / max_weight_norm
+        pass
+
+    def compute_optimized_lambda(self):
+        """
+        Formula: 
+            max <lambda> lambda
+            subject to w1' = Krum(w1', w1, ..., wc),
+                       w1' = wRe - lambda * s
+        """
+
+        # SAMPLE
+        # Find the optimal value of lambda
+        # that maximizes the attacker's utility function
+        # while ensuring that the optimization problem is well-defined.
+        # lambda_upperbound = find_lambda_upperbound(target_clients, poisoned_updates)
+        # lambda_lowerbound = 0
+        # while lambda_upperbound - lambda_lowerbound > tol:
+        #     lambda_guess = (lambda_lowerbound + lambda_upperbound) / 2
+        #     utility_guess = utility_function(target_clients, poisoned_updates, lambda_guess)
+        #     if utility_guess > desired_utility:
+        #         lambda_lowerbound = lambda_guess
+        #     else:
+        #         lambda_upperbound = lambda_guess
+        # return (lambda_lowerbound + lambda_upperbound) / 2
+        pass
+
     def compute_direction_change(self):
         glob_weights = copy.deepcopy(self.model.state_dict())
-        # mean_weights, length =
-        return None
+        mean_weights = self.benign_mean["weights"]
+        s_directions = copy.deepcopy(mean_weights)
+        for k in s_directions.keys():
+            s_directions[k] = (mean_weights[k] - glob_weights[k]) / \
+                abs(mean_weights[k] - glob_weights[k])
+            s_directions[k][np.isnan(s_directions[k])] = -1
+        return s_directions
 
     def compute_benign_mean(self):
         weights = []
