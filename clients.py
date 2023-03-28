@@ -6,6 +6,7 @@ from threading import Thread
 from utils.data import get_data
 from torch.utils.data import DataLoader
 import threading
+import numpy as np
 
 
 class Client:
@@ -14,11 +15,13 @@ class Client:
         self.num = self.config.clients.total
         self.compromised = self.config.clients.compromised
         self.compromised_id = [i for i in range(0, self.compromised)]
+        self.compromised_round_updates = 0
         # we initialize benign_iteration at 1st round only
         # other consequent rounds use this iteration to
         # compute malicious updates
         self.benign_iteration = [None for _ in range(0, self.compromised)]
-        self.benign_mean = None
+        self.benign_mean = {"weights": None, "length": None,
+                            "running_correct": None, "epoch_loss": None}
         self.compromised_attack = self.config.clients.compromised_attack
         self.client_id = [i for i in range(self.compromised, self.num)]
         self.model = None
@@ -65,23 +68,8 @@ class Client:
         # List of crafted w1..wc is stored during the iteration
         # At step 6, compromised client select crafted updates based on their user_id
 
-        if self.benign_iteration[user_id]:
-            benign_iter = self.benign_iteration[user_id]
-            model, epoch_loss, running_corrects, len_dataset = benign_iter["model"], benign_iter[
-                "epoch_loss"], benign_iter["running_corrects"], benign_iter["len_dataset"]
-
-            if self.benign_mean is None:
-                self.compute_benign_mean()
-
-            #
-            lock = threading.Lock()
-            lock.acquire()
-            self.weights.append(self.benign_mean)
-            self.epoch_loss.append(epoch_loss)
-            self.running_corrects.append(running_corrects)
-            self.len_dataset.append(len_dataset)
-            lock.release()
-        else:
+        if self.benign_mean["weights"] is None and self.compromised_round_updates < self.compromised:
+            # first iteration, need to go over all compromised clients
             model, epoch_loss, running_corrects, len_dataset = self.benign_local_train(
                 user_id, dataloaders, verbose)
             self.benign_iteration[user_id] = {
@@ -90,20 +78,59 @@ class Client:
                 "running_corrects": running_corrects,
                 "len_dataset": len_dataset
             }
+            weights = model
+        elif self.compromised_round_updates >= self.compromised:
+            # first compromised client of attack iteration
+            self.compromised_round_updates = 0
+            if self.benign_mean["weights"] is None:
+                self.compute_benign_mean()
+
+            # compute directions
+            directions = self.compute_direction_change()
+
+            weights, len_dataset, running_corrects, epoch_loss = self.benign_mean["weights"], self.benign_mean[
+                "length"], self.benign_mean["running_corrects"], self.benign_mean["epoch_loss"]
+        else:
+            # other client of attack iteration, used compute w1'
+
+            weights, len_dataset, running_corrects, epoch_loss = self.benign_mean["weights"], self.benign_mean[
+                "length"], self.benign_mean["running_corrects"], self.benign_mean["epoch_loss"]
+
+        lock = threading.Lock()
+        lock.acquire()
+        self.weights.append(weights)
+        self.epoch_loss.append(epoch_loss)
+        self.running_corrects.append(running_corrects)
+        self.len_dataset.append(len_dataset)
+        lock.release()
+
+        self.compromised_round_updates += 1
+
+    def compute_direction_change(self):
+        glob_weights = copy.deepcopy(self.model.state_dict())
+        # mean_weights, length =
+        return None
 
     def compute_benign_mean(self):
         weights = []
         length = []
+        running_corrects = []
+        epoch_loss = []
         for d in self.benign_iteration:
             weights.append(d["model"])
             length.append(d["len_dataset"])
+            running_corrects.append(d["running_corrects"])
+            epoch_loss.append(d["epoch_loss"])
         w_avg = copy.deepcopy(weights[0])
         for k in w_avg.keys():
             w_avg[k] *= length[0]
             for i in range(1, len(weights)):
                 w_avg[k] += weights[i][k] * length[i]
             w_avg[k] = w_avg[k] / (sum(length))
-        self.benign_mean = w_avg
+        self.benign_mean["weights"] = w_avg
+        self.benign_mean["length"] = int(np.mean(length))
+        self.benign_mean["running_corrects"] = int(np.mean(running_corrects))
+        self.benign_mean["epoch_loss"] = np.mean(epoch_loss)
 
     def benign_local_train(self, user_id, dataloaders, verbose=1):
         """
