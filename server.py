@@ -5,6 +5,7 @@ from utils.config import Config
 from clients import Client
 import copy
 import numpy as np
+from utils.krum import Krum
 
 
 class Server:
@@ -66,31 +67,8 @@ class Server:
         k_param: number of farthest nodes to be excluded
         """
         weights = info["weights"]
-        num_nodes = len(weights)
-        key_params = weights[0].keys()
 
-        distances = np.zeros((num_nodes, num_nodes))
-        for i in range(num_nodes):
-            for j in range(i + 1, num_nodes):
-                distance = 0
-                for k in key_params:
-                    distance += torch.norm(
-                        torch.cat([weights[i][k].flatten(), weights[j][k].flatten()]), p=2)
-                distance = np.sqrt(distance)
-                distances[i][j] = distance
-                distances[j][i] = distance
-
-        krum_scores = np.zeros(num_nodes)
-        for i in range(num_nodes):
-            if not weights[i]:
-                # Skip empty weight tensors
-                continue
-            sorted_indices = np.argsort(distances[i])
-            krum_distances = np.sum(
-                distances[i][sorted_indices[:num_nodes - k_param]])
-            krum_scores[i] = krum_distances
-
-        selected_index = np.argmin(krum_scores)
+        selected_index = Krum().aggregate(weights, k_param)
         logging.info(f"Selected client id: {selected_index}")
         return weights[selected_index]
 

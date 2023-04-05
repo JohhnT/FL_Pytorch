@@ -88,6 +88,9 @@ class Client:
             # compute directions
             directions = self.compute_direction_change()
 
+            # /TEST/
+            self.compute_lambda_upperbound()
+
             weights, len_dataset, running_corrects, epoch_loss = self.benign_mean["weights"], self.benign_mean[
                 "length"], self.benign_mean["running_corrects"], self.benign_mean["epoch_loss"]
         else:
@@ -114,18 +117,31 @@ class Client:
             l <- <?> is the set of m - c - 2 benign local models that have the smallest Euclidean distance to wi.
         """
 
+        # retreive global model weights
+        global_weights = copy.deepcopy(self.model.state_dict())
+
+        # number of worker devices
+        m = self.num
+        # number of compromised
+        c = self.compromised
+        # number of parameters
+        d = len(global_weights.keys())
+
+        print(f"Total: {m}, Compromised: {c}, Parameters: {d}")
+
         # SAMPLE
         # Derive an upper bound on lambda
         # by considering the worst-case scenario
         # where the attacker can control all the target clients
         # and inject arbitrary model updates.
         # poisoned_updated ~ ?
-        max_update_norm = max([np.linalg.norm(update)
-                              for update in poisoned_updates])
-        # target_clients ~ self.benign_iteration[user_id]
-        max_weight_norm = max([np.linalg.norm(weight)
-                              for weight in target_clients.weights])
-        return max_update_norm / max_weight_norm
+
+        # max_update_norm = max([np.linalg.norm(update)
+        #                       for update in poisoned_updates])
+        # # target_clients ~ self.benign_iteration[user_id]
+        # max_weight_norm = max([np.linalg.norm(weight)
+        #                       for weight in target_clients.weights])
+        # return max_update_norm / max_weight_norm
 
     def compute_optimized_lambda(self):
         """
