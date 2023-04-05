@@ -122,7 +122,7 @@ class Client:
         # poisoned_updated ~ ?
         max_update_norm = max([np.linalg.norm(update)
                               for update in poisoned_updates])
-        # target_clients ~ self.benign_iteration
+        # target_clients ~ self.benign_iteration[user_id]
         max_weight_norm = max([np.linalg.norm(weight)
                               for weight in target_clients.weights])
         return max_update_norm / max_weight_norm
