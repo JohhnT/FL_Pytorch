@@ -6,8 +6,17 @@ class Krum:
     def __init__(self):
         pass
 
-    def aggregate(self, weights, k_param=2):
-        num_nodes = len(weights)
+    def aggregate(self, weights, num_nodes=None, k_param=2):
+
+        krum_scores = self.scores(
+            weights, num_nodes=num_nodes, k_param=k_param)
+
+        selected_index = np.argmin(krum_scores)
+        return selected_index
+
+    def scores(self, weights, num_nodes=None, k_param=2):
+        if num_nodes is None:
+            num_nodes = len(weights)
 
         distances = np.zeros((num_nodes, num_nodes))
         for i in range(num_nodes):
@@ -25,15 +34,13 @@ class Krum:
             krum_distances = np.sum(
                 distances[i][sorted_indices[:num_nodes - k_param]])
             krum_scores[i] = krum_distances
-
-        selected_index = np.argmin(krum_scores)
-        return selected_index
+        return krum_scores
 
     def distance(self, w1, w2):
         key_params = w1.keys()
         distance = 0
         for k in key_params:
-            distance += torch.norm(
-                torch.cat([w1[k].flatten(), w2[k].flatten()]), p=2)
-        distance = np.sqrt(distance)
+            diff = w1[k].flatten() - w2[k].flatten()
+            distance += torch.dot(diff, diff)
+        distance = np.sqrt(distance.item())
         return distance

@@ -24,10 +24,14 @@ class Server:
             logging.info("-" * 22 + "round {}".format(round) + "-" * 30)
             # select clients which participate training
             selected = self.clients_selection()
-            logging.info("selected clients:{}".format(selected))
+            # logging.info("selected clients ({}):{}".format(
+            #     len(selected), selected))
             info = self.clients.train(selected)
 
             logging.info(f"aggregate weights ({self.config.fl.rule})")
+            if self.clients.compromised > 0:
+                logging.info(
+                    f"generate attack ({self.clients.compromised_attack})")
             # update glob model
             if self.config.fl.rule == 'krum':
                 glob_weights = self.krum(info)
@@ -68,7 +72,7 @@ class Server:
         """
         weights = info["weights"]
 
-        selected_index = Krum().aggregate(weights, k_param)
+        selected_index = Krum().aggregate(weights, k_param=k_param)
         logging.info(f"Selected client id: {selected_index}")
         return weights[selected_index]
 

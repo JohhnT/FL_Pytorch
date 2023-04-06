@@ -1,12 +1,16 @@
-from torch import nn, optim
-import torch
 import copy
 import logging
-from threading import Thread
-from utils.data import get_data
-from torch.utils.data import DataLoader
+import random
 import threading
+from threading import Thread
+
 import numpy as np
+import torch
+from torch import nn, optim
+from torch.utils.data import DataLoader
+
+from utils.data import get_data
+from utils.krum import Krum
 
 
 class Client:
@@ -16,12 +20,14 @@ class Client:
         self.compromised = self.config.clients.compromised
         self.compromised_id = [i for i in range(0, self.compromised)]
         self.compromised_round_updates = 0
+        self.compromised_weights = []
         # we initialize benign_iteration at 1st round only
         # other consequent rounds use this iteration to
         # compute malicious updates
         self.benign_iteration = [None for _ in range(0, self.compromised)]
         self.benign_mean = {"weights": None, "length": None,
                             "running_correct": None, "epoch_loss": None}
+        self.benign_cweights = None
         self.compromised_attack = self.config.clients.compromised_attack
         self.client_id = [i for i in range(self.compromised, self.num)]
         self.model = None
@@ -51,6 +57,14 @@ class Client:
             self.benign_local_train(user_id, dataloaders, verbose)
 
     def malicious_local_train(self, user_id, dataloaders, verbose=1):
+        if self.compromised_attack == "krum":
+            self.malicious_krum_train(user_id, dataloaders, verbose)
+        elif self.compromised_attack == "krum_ext":
+            self.malicious_krum_train(user_id, dataloaders, verbose)
+        else:
+            pass
+
+    def malicious_krum_train(self, user_id, dataloaders, verbose=1):
         """
         Compromised client's local train function
         """
@@ -79,6 +93,8 @@ class Client:
                 "len_dataset": len_dataset
             }
             weights = model
+            self.compromised_round_updates += 1
+            return
         elif self.compromised_round_updates >= self.compromised:
             # first compromised client of attack iteration
             self.compromised_round_updates = 0
@@ -88,15 +104,25 @@ class Client:
             # compute directions
             directions = self.compute_direction_change()
 
-            # /TEST/
-            self.compute_lambda_upperbound()
+            # optimization
+            _, w_1 = self.compute_optimized_lambda(directions=directions)
 
-            weights, len_dataset, running_corrects, epoch_loss = self.benign_mean["weights"], self.benign_mean[
+            # get randomized compromised samples
+            if (self.compromised_attack == "krum"):
+                self.compromised_weights = self.select_compromised_weights(w_1)
+            elif self.compromised_attack == "krum_ext":
+                self.compromised_weights = self.select_compromised_weights(
+                    w_1, directions=directions)
+            else:
+                self.compromised_weights = [
+                    self.benign_mean["weights"] for _ in range(self.compromised_attack)]
+
+            weights, len_dataset, running_corrects, epoch_loss = self.compromised_weights[user_id], self.benign_mean[
                 "length"], self.benign_mean["running_corrects"], self.benign_mean["epoch_loss"]
         else:
             # other client of attack iteration, used compute w1'
 
-            weights, len_dataset, running_corrects, epoch_loss = self.benign_mean["weights"], self.benign_mean[
+            weights, len_dataset, running_corrects, epoch_loss = self.compromised_weights[user_id], self.benign_mean[
                 "length"], self.benign_mean["running_corrects"], self.benign_mean["epoch_loss"]
 
         lock = threading.Lock()
@@ -109,6 +135,34 @@ class Client:
 
         self.compromised_round_updates += 1
 
+    def select_compromised_weights(self, w_1, epsilon=0.01, directions=None):
+        krum = Krum()
+
+        weights = [copy.deepcopy(w_1)]
+
+        while len(weights) < self.compromised:
+            w_c = copy.deepcopy(w_1)
+
+            # keys = random.sample(
+            #     list(w_1.keys()), k=random.randint(1, len(w_1.keys())))
+            # for k in keys:
+            #     w_c[k] += random.uniform(-epsilon, epsilon)
+
+            k = random.choice(list(w_1.keys()))
+            if directions is None:
+                w_c[k] += random.uniform(-epsilon, epsilon)
+            else:
+                # krum_ext
+                w_c[k][directions[k] == 1] += random.uniform(-epsilon, 0)
+                w_c[k][directions[k] == -1] += random.uniform(0, epsilon)
+
+            d = krum.distance(w_1, w_c)
+
+            if d <= epsilon:
+                weights.append(w_c)
+
+        return weights
+
     def compute_lambda_upperbound(self):
         """
         Formula: lambda <= 1 / ((m - 2c - 1)sqrt(d)) * min<c + 1 <= i <= m>(Sum<?>(D(wl, wi))) + 1 / sqrt(d) * max<c + 1 <= i <= m>(D(wi, wRe))
@@ -120,6 +174,10 @@ class Client:
         # retreive global model weights
         global_weights = copy.deepcopy(self.model.state_dict())
 
+        benign_weights = []
+        for d in self.benign_iteration:
+            benign_weights.append(d["model"])
+
         # number of worker devices
         m = self.num
         # number of compromised
@@ -127,43 +185,82 @@ class Client:
         # number of parameters
         d = len(global_weights.keys())
 
-        print(f"Total: {m}, Compromised: {c}, Parameters: {d}")
+        krum = Krum()
 
-        # SAMPLE
-        # Derive an upper bound on lambda
-        # by considering the worst-case scenario
-        # where the attacker can control all the target clients
-        # and inject arbitrary model updates.
-        # poisoned_updated ~ ?
+        min_score = min(krum.scores(
+            self.benign_cweights, num_nodes=self.compromised))
 
-        # max_update_norm = max([np.linalg.norm(update)
-        #                       for update in poisoned_updates])
-        # # target_clients ~ self.benign_iteration[user_id]
-        # max_weight_norm = max([np.linalg.norm(weight)
-        #                       for weight in target_clients.weights])
-        # return max_update_norm / max_weight_norm
+        max_score = max([krum.distance(
+            benign_weights[i], global_weights) for i in range(len(benign_weights))])
 
-    def compute_optimized_lambda(self):
+        # logging.info(
+        #     f"Total: {m}, Compromised: {c}, Parameters: {d}, "
+        #     + f"Min distance score: {min_score}"
+        #     + f"Max distance score: {max_score}")
+
+        upperbound = 1 / ((m - 2 * c - 1) * np.sqrt(d)) * \
+            min_score + 1 / np.sqrt(d) * max_score
+
+        # logging.info(f"Lambda upperbound: {upperbound}")
+
+        return upperbound, benign_weights
+
+    def compute_optimized_lambda(self, directions):
         """
         Formula: 
             max <lambda> lambda
             subject to w1' = Krum(w1', w1, ..., wc),
                        w1' = wRe - lambda * s
         """
-        upperbound = self.compute_lambda_upperbound()
-        lowerbound = 0
-        # simple binary search
-        while upperbound - lowerbound > tol:
-            guess = (upperbound + lowerbound) / 2  # binary search
-            # guess -> desired_krum = w1' = wRe - guess * s
-            desired_krum = 0
-            # benign iteration updates, current clients updates
-            krum_guess = self.krum_guess_fn()
-            if krum_guess > desired_krum:
-                lowerbound = guess
-            else:
-                upperbound = guess
-        return (upperbound + lowerbound) / 2
+        upperbound, benign_weights = self.compute_lambda_upperbound()
+        threshold = 0.00001
+        lamda = upperbound
+
+        # retreive global model weights
+        global_weights = copy.deepcopy(self.model.state_dict())
+
+        # logging.info(
+        #     "[Lambda optimization] intialization: "
+        #     + f"upperbound={upperbound} "
+        #     + f"threshold={threshold}")
+
+        krum = Krum()
+
+        def compute_w_1(ld):
+            """
+            w_1 = global_weights - lamda * directions
+            """
+            res = copy.deepcopy(global_weights)
+            for k in global_weights.keys():
+                res[k] = global_weights[k] - lamda * directions[k]
+            return res
+
+        added_w_1 = 1
+        found_lambda = False
+
+        while not found_lambda:
+            while lamda >= threshold:
+                w_1 = compute_w_1(lamda)
+
+                weights = [w_1 for _ in range(added_w_1)] + benign_weights
+                selected_id = krum.aggregate(weights)
+
+                # logging.info(
+                #     f"[Lambda optimization] selected id = {selected_id}, lamda = {lamda}")
+
+                if selected_id == 0:
+                    found_lambda = True
+                    break
+
+                lamda = lamda / 2
+            lamda = upperbound
+            added_w_1 = added_w_1 + 1
+
+        # logging.info(f"[Lambda optimization] result: lambda = {lamda}")
+
+        w_1 = compute_w_1(lamda)
+
+        return lamda, w_1
 
     def compute_direction_change(self):
         glob_weights = copy.deepcopy(self.model.state_dict())
@@ -172,7 +269,8 @@ class Client:
         for k in s_directions.keys():
             s_directions[k] = (mean_weights[k] - glob_weights[k]) / \
                 abs(mean_weights[k] - glob_weights[k])
-            s_directions[k][np.isnan(s_directions[k])] = -1
+            s_directions[k][torch.isnan(s_directions[k])] = -1
+
         return s_directions
 
     def compute_benign_mean(self):
@@ -263,6 +361,10 @@ class Client:
         # training details
         info = {"weights": self.weights, "loss": self.epoch_loss, "corrects": self.running_corrects,
                 'len': self.len_dataset}
+
+        if self.benign_cweights is None:
+            self.benign_cweights = copy.deepcopy(self.weights)
+
         return self.upload(info)
 
     def test(self):
