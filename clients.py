@@ -111,12 +111,9 @@ class Client:
                 self.compromised_weights = self.select_compromised_weights(
                     w_1, directions=directions)
             elif self.compromised_attack == "trimmed_mean":
-                # self.compromised_weights =
-                self.select_compromised_mean_weights(
+                self.compromised_weights = self.select_compromised_mean_weights(
                     directions=directions
                 )
-                self.compromised_weights = [
-                    self.benign_mean["weights"] for _ in range(self.compromised)]
             else:
                 self.compromised_weights = [
                     self.benign_mean["weights"] for _ in range(self.compromised)]
@@ -142,6 +139,23 @@ class Client:
     def select_compromised_mean_weights(self, directions):
         if self.benign_means is None or self.benign_stds is None:
             self.compute_benign_statistics()
+
+        cweights = []
+
+        for _ in range(self.compromised):
+            cweight = copy.deepcopy(self.benign_means)
+            for k in cweight.keys():
+                # [μj +3σj,μj +4σj]
+                cweight[k][directions[k] == -1] = ((self.benign_means[k] + 3 * self.benign_stds[k]) + torch.rand(cweight[k].shape) * (
+                    (self.benign_means[k] + 4 * self.benign_stds[k]) - (self.benign_means[k] + 3 * self.benign_stds[k])))[directions[k] == -1]
+                # [μj − 4σj,μj − 3σj]
+                cweight[k][directions[k] == 1] = ((self.benign_means[k] - 4 * self.benign_stds[k]) + torch.rand(cweight[k].shape) * (
+                    (self.benign_means[k] - 3 * self.benign_stds[k]) - (self.benign_means[k] - 4 * self.benign_stds[k])))[directions[k] == 1]
+            cweights.append(cweight)
+
+        # print(len(cweights))
+
+        return cweights
 
     def compute_benign_statistics(self):
         weights = [copy.deepcopy(update["model"])
