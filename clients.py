@@ -29,6 +29,8 @@ class Client:
                             "running_correct": None, "epoch_loss": None}
         self.benign_cweights = None
         self.compromised_attack = self.config.clients.compromised_attack
+        self.benign_means = None
+        self.benign_stds = None
         self.client_id = [i for i in range(self.compromised, self.num)]
         self.model = None
         self.dataloaders = []
@@ -57,14 +59,6 @@ class Client:
             self.benign_local_train(user_id, dataloaders, verbose)
 
     def malicious_local_train(self, user_id, dataloaders, verbose=1):
-        if self.compromised_attack == "krum":
-            self.malicious_krum_train(user_id, dataloaders, verbose)
-        elif self.compromised_attack == "krum_ext":
-            self.malicious_krum_train(user_id, dataloaders, verbose)
-        else:
-            pass
-
-    def malicious_krum_train(self, user_id, dataloaders, verbose=1):
         """
         Compromised client's local train function
         """
@@ -104,18 +98,28 @@ class Client:
             # compute directions
             directions = self.compute_direction_change()
 
-            # optimization
-            _, w_1 = self.compute_optimized_lambda(directions=directions)
-
             # get randomized compromised samples
             if (self.compromised_attack == "krum"):
+                # optimization
+                _, w_1 = self.compute_optimized_lambda(directions=directions)
+
                 self.compromised_weights = self.select_compromised_weights(w_1)
             elif self.compromised_attack == "krum_ext":
+                # optimization
+                _, w_1 = self.compute_optimized_lambda(directions=directions)
+
                 self.compromised_weights = self.select_compromised_weights(
                     w_1, directions=directions)
+            elif self.compromised_attack == "trimmed_mean":
+                # self.compromised_weights =
+                self.select_compromised_mean_weights(
+                    directions=directions
+                )
+                self.compromised_weights = [
+                    self.benign_mean["weights"] for _ in range(self.compromised)]
             else:
                 self.compromised_weights = [
-                    self.benign_mean["weights"] for _ in range(self.compromised_attack)]
+                    self.benign_mean["weights"] for _ in range(self.compromised)]
 
             weights, len_dataset, running_corrects, epoch_loss = self.compromised_weights[user_id], self.benign_mean[
                 "length"], self.benign_mean["running_corrects"], self.benign_mean["epoch_loss"]
@@ -134,6 +138,22 @@ class Client:
         lock.release()
 
         self.compromised_round_updates += 1
+
+    def select_compromised_mean_weights(self, directions):
+        if self.benign_means is None or self.benign_stds is None:
+            self.compute_benign_statistics()
+
+    def compute_benign_statistics(self):
+        weights = [copy.deepcopy(update["model"])
+                   for update in self.benign_iteration]
+        means = copy.deepcopy(weights[0])
+        stds = copy.deepcopy(weights[0])
+        for k in means.keys():
+            means[k] = torch.stack([w[k] for w in weights]).mean(dim=0)
+            stds[k] = torch.stack([w[k] for w in weights]).std(dim=0)
+
+        self.benign_means = means
+        self.benign_stds = stds
 
     def select_compromised_weights(self, w_1, epsilon=0.01, directions=None):
         krum = Krum()
