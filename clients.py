@@ -11,6 +11,7 @@ from torch.utils.data import DataLoader
 
 from utils.data import get_data
 from utils.krum import Krum
+from utils.statistics import *
 
 
 class Client:
@@ -31,6 +32,8 @@ class Client:
         self.compromised_attack = self.config.clients.compromised_attack
         self.benign_means = None
         self.benign_stds = None
+        self.compromised_distributions = None
+        self.compromised_statistics = None
         self.client_id = [i for i in range(self.compromised, self.num)]
         self.model = None
         self.dataloaders = []
@@ -114,6 +117,10 @@ class Client:
                 self.compromised_weights = self.select_compromised_mean_weights(
                     directions=directions
                 )
+            elif self.compromised_attack == "trimmed_mean_ext":
+                self.compromised_weights = self.select_compromised_mean_weights_ext(
+                    directions=directions
+                )
             else:
                 self.compromised_weights = [
                     self.benign_mean["weights"] for _ in range(self.compromised)]
@@ -136,6 +143,61 @@ class Client:
 
         self.compromised_round_updates += 1
 
+    def select_compromised_mean_weights_ext(self, directions):
+        if self.compromised_distributions is None:
+            self.select_distributions()
+
+        return self.select_compromised_mean_weights_ext_(directions=directions)
+
+    def select_distributions(self):
+        weights = [copy.deepcopy(update["model"])
+                   for update in self.benign_iteration]
+
+        distributions = copy.deepcopy(weights[0])
+
+        for k in weights[0].keys():
+            tensors = [w[k] for w in weights]
+            shape = tensors[0].shape
+            result = torch.zeros(shape)
+
+            for index in np.ndindex(shape):
+                values = np.array([tensor[index].numpy()[()]
+                                  for tensor in tensors])
+
+                result[index] = get_distribution_model(values)
+
+            distributions[k] = result
+        self.compromised_distributions = copy.deepcopy(distributions)
+        self.compromised_statistics = get_distribution_statistics(
+            distributions)
+
+    def select_compromised_mean_weights_ext_(self, directions):
+        if self.benign_means is None or self.benign_stds is None:
+            self.compute_benign_statistics()
+        cweights = []
+
+        for _ in range(self.compromised):
+            cweight = copy.deepcopy(self.benign_means)
+            for k in cweight.keys():
+                cweight[k][directions[k] == -1] = Distribution.select(
+                    codes=self.compromised_distributions[k][directions[k] == -1],
+                    means=self.benign_means[k][directions[k] == -1],
+                    stds=self.benign_stds[k][directions[k] == -1],
+                    direction=-1
+                )
+                cweight[k][directions[k] == 1] = Distribution.select(
+                    codes=self.compromised_distributions[k][directions[k] == 1],
+                    means=self.benign_means[k][directions[k] == 1],
+                    stds=self.benign_stds[k][directions[k] == 1],
+                    direction=1
+                )
+
+            cweights.append(cweight)
+
+        # print(len(cweights))
+
+        return cweights
+
     def select_compromised_mean_weights(self, directions):
         if self.benign_means is None or self.benign_stds is None:
             self.compute_benign_statistics()
@@ -146,11 +208,20 @@ class Client:
             cweight = copy.deepcopy(self.benign_means)
             for k in cweight.keys():
                 # [μj +3σj,μj +4σj]
-                cweight[k][directions[k] == -1] = ((self.benign_means[k] + 3 * self.benign_stds[k]) + torch.rand(cweight[k].shape) * (
-                    (self.benign_means[k] + 4 * self.benign_stds[k]) - (self.benign_means[k] + 3 * self.benign_stds[k])))[directions[k] == -1]
+                cweight[k][directions[k] == -1] = Gaussian.select(
+                    means=self.benign_means[k][directions[k] == -1],
+                    stds=self.benign_stds[k][directions[k] == -1],
+                    shape=cweight[k][directions[k] == -1].shape,
+                    direction=-1
+                )
                 # [μj − 4σj,μj − 3σj]
-                cweight[k][directions[k] == 1] = ((self.benign_means[k] - 4 * self.benign_stds[k]) + torch.rand(cweight[k].shape) * (
-                    (self.benign_means[k] - 3 * self.benign_stds[k]) - (self.benign_means[k] - 4 * self.benign_stds[k])))[directions[k] == 1]
+                cweight[k][directions[k] == 1] = Gaussian.select(
+                    means=self.benign_means[k][directions[k] == 1],
+                    stds=self.benign_stds[k][directions[k] == 1],
+                    shape=cweight[k][directions[k] == 1].shape,
+                    direction=1
+                )
+
             cweights.append(cweight)
 
         # print(len(cweights))

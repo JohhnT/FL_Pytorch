@@ -1,0 +1,30 @@
+{
+    "clients": {
+        "compromised": 20,
+        "compromised_attack": "trimmed_mean_ext",
+        "total": 100,
+        "fraction": 1
+    },
+    "data": {
+        "loading": "static",
+        "partition": {
+            "size": 600
+        },
+        "IID": true
+    },
+    "federated_learning": {
+        "rule": "median",
+        "rounds": 100,
+        "target_accuracy": 0.99,
+        "task": "train",
+        "epochs": 5,
+        "batch_size": 10,
+        "lr": 0.01
+    },
+    "dataset": "BreastCancer",
+    "paths": {
+        "data": "./local_dataset",
+        "model": "./models"
+    },
+    "server": "basic"
+}

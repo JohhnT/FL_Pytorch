@@ -32,6 +32,14 @@ class Server:
             if self.clients.compromised > 0:
                 logging.info(
                     f"generate attack ({self.clients.compromised_attack})")
+                if self.clients.compromised_statistics is not None:
+                    try:
+                        logging.info(
+                            "by distributions: " +
+                            f"Gaussian ({self.clients.compromised_statistics['gaussian']} samples)," +
+                            f"Log Gaussian ({self.clients.compromised_statistics['log_gaussian']} samples)")
+                    except:
+                        pass
             # update glob model
             if self.config.fl.rule == 'krum':
                 glob_weights = self.krum(info)
