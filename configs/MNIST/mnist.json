@@ -1,7 +1,7 @@
 {
     "clients": {
         "total": 100,
-        "fraction": 1
+        "fraction": 0.1
     },
     "data": {
         "loading": "static",
@@ -11,7 +11,7 @@
         "IID": false
     },
     "federated_learning": {
-        "rule": "trimmed_mean",
+        "rule": "median",
         "rounds": 1000,
         "target_accuracy": 0.99,
         "task": "train",

@@ -45,6 +45,14 @@ class Distribution:
             direction=direction)
         return result
 
+    def aic(D, data):
+        """
+        -2log(L) + 2k
+        """
+        k = 2  # means, stds
+        L = D.pdf(data, np.mean(data), np.std(data))
+        return -2 * sum(np.log(L)) + 2 * k
+
 
 class Gaussian(Distribution):
     code = 1
@@ -58,6 +66,9 @@ class Gaussian(Distribution):
         #     np.histogram(data, bins='auto')[1], mu, sigma))
         # Gaussian by default
         return True
+
+    def aic(data):
+        return Distribution.aic(Gaussian, data)
 
     def select(means, stds, shape, direction):
         if direction == -1:
@@ -74,11 +85,14 @@ class LogGaussian(Distribution):
     code = 2
 
     def pdf(x, mu, sigma):
-        return lognorm.pdf(x, sigma, scale=np.exp(mu))
+        return norm.logpdf(x, mu, sigma)
 
     def test_fitness(data, mu, sigma) -> bool:
         _, p_value = chisquare(data, f_exp=LogGaussian.pdf(data, mu, sigma))
         return bool(p_value <= Distribution.p_value)
+
+    def aic(data):
+        return Distribution.aic(LogGaussian, data)
 
     def select(means, stds, shape, direction):
         """
@@ -92,7 +106,7 @@ class LogGaussian(Distribution):
             return (np.exp(means + 3 * stds) + torch.rand(shape) *
                     (np.exp(means + 4 * stds) - np.exp(means + 3 * stds)))
         elif direction == 1:
-            # [μj − 2.33σj,exp(μj − 2.05σj)]
+            # [exp(μj − 2.33σj),exp(μj − 2.05σj)]
             return (np.exp(means - 4 * stds) + torch.rand(shape) * (
                     np.exp(means - 3 * stds) - np.exp(means - 4 * stds)))
 
@@ -127,15 +141,18 @@ def get_distribution_model(data):
     mu = np.mean(data)
     sigma = np.std(data)
 
+    gaussianAIC = Gaussian.aic(data)
+
     try:
         logGaussian = LogGaussian.test_fitness(data, mu, sigma)
     except:
         logGaussian = False
 
     if logGaussian:
-        return LogGaussian.code
-    else:
-        return Gaussian.code
+        logGaussianAIC = LogGaussian.aic(data)
+        if logGaussianAIC < gaussianAIC:
+            return LogGaussian.code
+    return Gaussian.code
 
 
 def get_distribution_statistics(distributions):

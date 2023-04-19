@@ -36,19 +36,27 @@ class FashionMnist_Net(nn.Module):
 class Mnist_Net(nn.Module):
     def __init__(self):
         super(Mnist_Net, self).__init__()
-        self.conv1 = nn.Conv2d(1, 32, 5)
-        self.pool = nn.MaxPool2d(2, 2)
-        self.conv2 = nn.Conv2d(32, 64, 5)
-        self.fc = nn.Sequential(
-            nn.Linear(64 * 4 * 4, 512),
+        self.layer1 = nn.Sequential(
+            nn.Conv2d(1, 30, 3),
             nn.ReLU(),
-            nn.Linear(512, 10)
+            nn.MaxPool2d(2)
+        )
+        self.layer2 = nn.Sequential(
+            nn.Conv2d(30, 50, 3),
+            nn.ReLU(),
+            nn.MaxPool2d(2)
+        )
+        self.fc = nn.Sequential(
+            nn.Linear(5*5*50, 200),
+            nn.ReLU(),
+            nn.Linear(200, 10),
+            nn.Softmax(dim=1)
         )
 
     def forward(self, x):
-        x = self.pool(F.relu(self.conv1(x)))
-        x = self.pool(F.relu(self.conv2(x)))
-        x = x.view(-1, 4 * 4 * 64)
+        x = self.layer1(x)
+        x = self.layer2(x)
+        x = x.view(x.size(0), -1)
         x = self.fc(x)
         return x
 
