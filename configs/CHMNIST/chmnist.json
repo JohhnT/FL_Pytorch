@@ -12,7 +12,7 @@
     },
     "federated_learning": {
         "rule": "median",
-        "rounds": 10000,
+        "rounds": 100,
         "target_accuracy": 0.99,
         "task": "train",
         "epochs": 5,
