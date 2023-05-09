@@ -1,6 +1,6 @@
 {
     "clients": {
-        "compromised": 5,
+        "compromised": 10,
         "compromised_attack": "krum",
         "total": 100,
         "fraction": 1
