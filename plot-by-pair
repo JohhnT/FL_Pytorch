@@ -1,0 +1,10 @@
+#!/bin/sh
+
+scope=$1
+target=$2
+scope_ext="$scope-ext"
+
+plot_file="extracted/$scope/$target"
+plot_file_ext="extracted/$scope_ext/$target"
+
+gnuplot -e "set terminal png; set output 'plots/$scope/$target.png'; set ylabel '$target'; set xlabel 'Round'; plot '$plot_file' title '$target of $scope' with lines, '$plot_file_ext' title '$target of $scope_ext' with lines; set terminal x11; set output; replot;"

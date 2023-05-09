@@ -499,5 +499,3 @@
 [INFO][07:27:29]: aggregate weights (median)
 [INFO][07:27:29]: generate attack (krum)
 [INFO][07:27:32]: training acc: 0.8882,test acc: 0.6973, test_loss: 1.7644
-
-[INFO][07:27:32]: ----------------------round 101------------------------------

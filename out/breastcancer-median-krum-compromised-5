@@ -1,0 +1,502 @@
+[INFO][21:18:21]: config:configs/BreastCancer/breastcancer-median-krum.json,  log:INFO
+[INFO][21:18:21]: dataset: BreastCancer
+[INFO][21:18:21]: ----------------------round 1------------------------------
+[INFO][21:18:23]: aggregate weights (median)
+[INFO][21:18:23]: generate attack (krum)
+[INFO][21:18:23]: training acc: 0.5040,test acc: 0.3043, test_loss: 0.6984
+
+[INFO][21:18:23]: ----------------------round 2------------------------------
+[INFO][21:18:24]: aggregate weights (median)
+[INFO][21:18:24]: generate attack (krum)
+[INFO][21:18:24]: training acc: 0.4200,test acc: 0.3188, test_loss: 0.6972
+
+[INFO][21:18:24]: ----------------------round 3------------------------------
+[INFO][21:18:26]: aggregate weights (median)
+[INFO][21:18:26]: generate attack (krum)
+[INFO][21:18:26]: training acc: 0.4360,test acc: 0.3188, test_loss: 0.6948
+
+[INFO][21:18:26]: ----------------------round 4------------------------------
+[INFO][21:18:27]: aggregate weights (median)
+[INFO][21:18:27]: generate attack (krum)
+[INFO][21:18:27]: training acc: 0.6200,test acc: 0.7826, test_loss: 0.6898
+
+[INFO][21:18:27]: ----------------------round 5------------------------------
+[INFO][21:18:29]: aggregate weights (median)
+[INFO][21:18:29]: generate attack (krum)
+[INFO][21:18:29]: training acc: 0.8100,test acc: 0.7391, test_loss: 0.6903
+
+[INFO][21:18:29]: ----------------------round 6------------------------------
+[INFO][21:18:30]: aggregate weights (median)
+[INFO][21:18:30]: generate attack (krum)
+[INFO][21:18:30]: training acc: 0.8400,test acc: 0.7536, test_loss: 0.6893
+
+[INFO][21:18:30]: ----------------------round 7------------------------------
+[INFO][21:18:32]: aggregate weights (median)
+[INFO][21:18:32]: generate attack (krum)
+[INFO][21:18:32]: training acc: 0.8380,test acc: 0.8841, test_loss: 0.6864
+
+[INFO][21:18:32]: ----------------------round 8------------------------------
+[INFO][21:18:33]: aggregate weights (median)
+[INFO][21:18:33]: generate attack (krum)
+[INFO][21:18:33]: training acc: 0.8960,test acc: 0.8551, test_loss: 0.6835
+
+[INFO][21:18:33]: ----------------------round 9------------------------------
+[INFO][21:18:35]: aggregate weights (median)
+[INFO][21:18:35]: generate attack (krum)
+[INFO][21:18:35]: training acc: 0.8740,test acc: 0.8841, test_loss: 0.6830
+
+[INFO][21:18:35]: ----------------------round 10------------------------------
+[INFO][21:18:37]: aggregate weights (median)
+[INFO][21:18:37]: generate attack (krum)
+[INFO][21:18:37]: training acc: 0.9000,test acc: 0.8551, test_loss: 0.6794
+
+[INFO][21:18:37]: ----------------------round 11------------------------------
+[INFO][21:18:38]: aggregate weights (median)
+[INFO][21:18:38]: generate attack (krum)
+[INFO][21:18:38]: training acc: 0.8560,test acc: 0.8696, test_loss: 0.6773
+
+[INFO][21:18:38]: ----------------------round 12------------------------------
+[INFO][21:18:40]: aggregate weights (median)
+[INFO][21:18:40]: generate attack (krum)
+[INFO][21:18:40]: training acc: 0.8540,test acc: 0.8551, test_loss: 0.6757
+
+[INFO][21:18:40]: ----------------------round 13------------------------------
+[INFO][21:18:41]: aggregate weights (median)
+[INFO][21:18:41]: generate attack (krum)
+[INFO][21:18:41]: training acc: 0.8600,test acc: 0.8551, test_loss: 0.6749
+
+[INFO][21:18:41]: ----------------------round 14------------------------------
+[INFO][21:18:43]: aggregate weights (median)
+[INFO][21:18:43]: generate attack (krum)
+[INFO][21:18:43]: training acc: 0.8840,test acc: 0.8841, test_loss: 0.6748
+
+[INFO][21:18:43]: ----------------------round 15------------------------------
+[INFO][21:18:45]: aggregate weights (median)
+[INFO][21:18:45]: generate attack (krum)
+[INFO][21:18:45]: training acc: 0.8960,test acc: 0.8551, test_loss: 0.6716
+
+[INFO][21:18:45]: ----------------------round 16------------------------------
+[INFO][21:18:46]: aggregate weights (median)
+[INFO][21:18:46]: generate attack (krum)
+[INFO][21:18:46]: training acc: 0.8900,test acc: 0.8551, test_loss: 0.6692
+
+[INFO][21:18:46]: ----------------------round 17------------------------------
+[INFO][21:18:48]: aggregate weights (median)
+[INFO][21:18:48]: generate attack (krum)
+[INFO][21:18:48]: training acc: 0.8840,test acc: 0.8841, test_loss: 0.6687
+
+[INFO][21:18:48]: ----------------------round 18------------------------------
+[INFO][21:18:49]: aggregate weights (median)
+[INFO][21:18:49]: generate attack (krum)
+[INFO][21:18:49]: training acc: 0.8980,test acc: 0.8551, test_loss: 0.6651
+
+[INFO][21:18:49]: ----------------------round 19------------------------------
+[INFO][21:18:51]: aggregate weights (median)
+[INFO][21:18:51]: generate attack (krum)
+[INFO][21:18:51]: training acc: 0.8840,test acc: 0.8841, test_loss: 0.6647
+
+[INFO][21:18:51]: ----------------------round 20------------------------------
+[INFO][21:18:53]: aggregate weights (median)
+[INFO][21:18:53]: generate attack (krum)
+[INFO][21:18:53]: training acc: 0.8980,test acc: 0.8551, test_loss: 0.6602
+
+[INFO][21:18:53]: ----------------------round 21------------------------------
+[INFO][21:18:54]: aggregate weights (median)
+[INFO][21:18:54]: generate attack (krum)
+[INFO][21:18:54]: training acc: 0.8800,test acc: 0.8551, test_loss: 0.6553
+
+[INFO][21:18:54]: ----------------------round 22------------------------------
+[INFO][21:18:56]: aggregate weights (median)
+[INFO][21:18:56]: generate attack (krum)
+[INFO][21:18:56]: training acc: 0.8440,test acc: 0.8406, test_loss: 0.6507
+
+[INFO][21:18:56]: ----------------------round 23------------------------------
+[INFO][21:18:58]: aggregate weights (median)
+[INFO][21:18:58]: generate attack (krum)
+[INFO][21:18:58]: training acc: 0.8060,test acc: 0.7826, test_loss: 0.6471
+
+[INFO][21:18:58]: ----------------------round 24------------------------------
+[INFO][21:19:00]: aggregate weights (median)
+[INFO][21:19:00]: generate attack (krum)
+[INFO][21:19:00]: training acc: 0.7720,test acc: 0.7826, test_loss: 0.6445
+
+[INFO][21:19:00]: ----------------------round 25------------------------------
+[INFO][21:19:01]: aggregate weights (median)
+[INFO][21:19:01]: generate attack (krum)
+[INFO][21:19:01]: training acc: 0.7700,test acc: 0.7681, test_loss: 0.6407
+
+[INFO][21:19:01]: ----------------------round 26------------------------------
+[INFO][21:19:03]: aggregate weights (median)
+[INFO][21:19:03]: generate attack (krum)
+[INFO][21:19:03]: training acc: 0.7520,test acc: 0.7681, test_loss: 0.6383
+
+[INFO][21:19:03]: ----------------------round 27------------------------------
+[INFO][21:19:04]: aggregate weights (median)
+[INFO][21:19:04]: generate attack (krum)
+[INFO][21:19:04]: training acc: 0.7640,test acc: 0.7681, test_loss: 0.6350
+
+[INFO][21:19:04]: ----------------------round 28------------------------------
+[INFO][21:19:06]: aggregate weights (median)
+[INFO][21:19:06]: generate attack (krum)
+[INFO][21:19:06]: training acc: 0.7580,test acc: 0.7826, test_loss: 0.6323
+
+[INFO][21:19:06]: ----------------------round 29------------------------------
+[INFO][21:19:08]: aggregate weights (median)
+[INFO][21:19:08]: generate attack (krum)
+[INFO][21:19:08]: training acc: 0.7660,test acc: 0.7681, test_loss: 0.6288
+
+[INFO][21:19:08]: ----------------------round 30------------------------------
+[INFO][21:19:10]: aggregate weights (median)
+[INFO][21:19:10]: generate attack (krum)
+[INFO][21:19:10]: training acc: 0.7660,test acc: 0.7681, test_loss: 0.6254
+
+[INFO][21:19:10]: ----------------------round 31------------------------------
+[INFO][21:19:11]: aggregate weights (median)
+[INFO][21:19:11]: generate attack (krum)
+[INFO][21:19:11]: training acc: 0.7560,test acc: 0.7826, test_loss: 0.6230
+
+[INFO][21:19:11]: ----------------------round 32------------------------------
+[INFO][21:19:13]: aggregate weights (median)
+[INFO][21:19:13]: generate attack (krum)
+[INFO][21:19:13]: training acc: 0.7760,test acc: 0.7826, test_loss: 0.6188
+
+[INFO][21:19:13]: ----------------------round 33------------------------------
+[INFO][21:19:15]: aggregate weights (median)
+[INFO][21:19:15]: generate attack (krum)
+[INFO][21:19:15]: training acc: 0.7660,test acc: 0.7681, test_loss: 0.6148
+
+[INFO][21:19:15]: ----------------------round 34------------------------------
+[INFO][21:19:16]: aggregate weights (median)
+[INFO][21:19:16]: generate attack (krum)
+[INFO][21:19:16]: training acc: 0.7540,test acc: 0.7826, test_loss: 0.6114
+
+[INFO][21:19:16]: ----------------------round 35------------------------------
+[INFO][21:19:18]: aggregate weights (median)
+[INFO][21:19:18]: generate attack (krum)
+[INFO][21:19:18]: training acc: 0.7660,test acc: 0.7826, test_loss: 0.6078
+
+[INFO][21:19:18]: ----------------------round 36------------------------------
+[INFO][21:19:19]: aggregate weights (median)
+[INFO][21:19:19]: generate attack (krum)
+[INFO][21:19:19]: training acc: 0.7660,test acc: 0.7681, test_loss: 0.6038
+
+[INFO][21:19:19]: ----------------------round 37------------------------------
+[INFO][21:19:21]: aggregate weights (median)
+[INFO][21:19:21]: generate attack (krum)
+[INFO][21:19:21]: training acc: 0.7560,test acc: 0.7681, test_loss: 0.6001
+
+[INFO][21:19:21]: ----------------------round 38------------------------------
+[INFO][21:19:22]: aggregate weights (median)
+[INFO][21:19:22]: generate attack (krum)
+[INFO][21:19:22]: training acc: 0.7580,test acc: 0.7681, test_loss: 0.5966
+
+[INFO][21:19:22]: ----------------------round 39------------------------------
+[INFO][21:19:23]: aggregate weights (median)
+[INFO][21:19:23]: generate attack (krum)
+[INFO][21:19:23]: training acc: 0.7580,test acc: 0.7826, test_loss: 0.5930
+
+[INFO][21:19:23]: ----------------------round 40------------------------------
+[INFO][21:19:25]: aggregate weights (median)
+[INFO][21:19:25]: generate attack (krum)
+[INFO][21:19:25]: training acc: 0.7680,test acc: 0.7826, test_loss: 0.5890
+
+[INFO][21:19:25]: ----------------------round 41------------------------------
+[INFO][21:19:26]: aggregate weights (median)
+[INFO][21:19:26]: generate attack (krum)
+[INFO][21:19:27]: training acc: 0.7600,test acc: 0.7681, test_loss: 0.5849
+
+[INFO][21:19:27]: ----------------------round 42------------------------------
+[INFO][21:19:28]: aggregate weights (median)
+[INFO][21:19:28]: generate attack (krum)
+[INFO][21:19:28]: training acc: 0.7580,test acc: 0.7536, test_loss: 0.5811
+
+[INFO][21:19:28]: ----------------------round 43------------------------------
+[INFO][21:19:30]: aggregate weights (median)
+[INFO][21:19:30]: generate attack (krum)
+[INFO][21:19:30]: training acc: 0.7520,test acc: 0.7536, test_loss: 0.5775
+
+[INFO][21:19:30]: ----------------------round 44------------------------------
+[INFO][21:19:31]: aggregate weights (median)
+[INFO][21:19:31]: generate attack (krum)
+[INFO][21:19:31]: training acc: 0.7440,test acc: 0.7536, test_loss: 0.5739
+
+[INFO][21:19:31]: ----------------------round 45------------------------------
+[INFO][21:19:33]: aggregate weights (median)
+[INFO][21:19:33]: generate attack (krum)
+[INFO][21:19:33]: training acc: 0.7380,test acc: 0.7536, test_loss: 0.5705
+
+[INFO][21:19:33]: ----------------------round 46------------------------------
+[INFO][21:19:34]: aggregate weights (median)
+[INFO][21:19:34]: generate attack (krum)
+[INFO][21:19:34]: training acc: 0.7360,test acc: 0.7536, test_loss: 0.5672
+
+[INFO][21:19:34]: ----------------------round 47------------------------------
+[INFO][21:19:36]: aggregate weights (median)
+[INFO][21:19:36]: generate attack (krum)
+[INFO][21:19:36]: training acc: 0.7340,test acc: 0.7536, test_loss: 0.5631
+
+[INFO][21:19:36]: ----------------------round 48------------------------------
+[INFO][21:19:37]: aggregate weights (median)
+[INFO][21:19:37]: generate attack (krum)
+[INFO][21:19:37]: training acc: 0.7540,test acc: 0.7826, test_loss: 0.5587
+
+[INFO][21:19:37]: ----------------------round 49------------------------------
+[INFO][21:19:38]: aggregate weights (median)
+[INFO][21:19:38]: generate attack (krum)
+[INFO][21:19:39]: training acc: 0.7600,test acc: 0.7826, test_loss: 0.5542
+
+[INFO][21:19:39]: ----------------------round 50------------------------------
+[INFO][21:19:40]: aggregate weights (median)
+[INFO][21:19:40]: generate attack (krum)
+[INFO][21:19:40]: training acc: 0.7740,test acc: 0.7826, test_loss: 0.5507
+
+[INFO][21:19:40]: ----------------------round 51------------------------------
+[INFO][21:19:41]: aggregate weights (median)
+[INFO][21:19:41]: generate attack (krum)
+[INFO][21:19:41]: training acc: 0.7700,test acc: 0.7826, test_loss: 0.5474
+
+[INFO][21:19:41]: ----------------------round 52------------------------------
+[INFO][21:19:43]: aggregate weights (median)
+[INFO][21:19:43]: generate attack (krum)
+[INFO][21:19:43]: training acc: 0.7700,test acc: 0.7826, test_loss: 0.5441
+
+[INFO][21:19:43]: ----------------------round 53------------------------------
+[INFO][21:19:44]: aggregate weights (median)
+[INFO][21:19:44]: generate attack (krum)
+[INFO][21:19:44]: training acc: 0.7700,test acc: 0.7826, test_loss: 0.5400
+
+[INFO][21:19:44]: ----------------------round 54------------------------------
+[INFO][21:19:46]: aggregate weights (median)
+[INFO][21:19:46]: generate attack (krum)
+[INFO][21:19:46]: training acc: 0.7760,test acc: 0.7826, test_loss: 0.5360
+
+[INFO][21:19:46]: ----------------------round 55------------------------------
+[INFO][21:19:47]: aggregate weights (median)
+[INFO][21:19:47]: generate attack (krum)
+[INFO][21:19:47]: training acc: 0.7860,test acc: 0.8551, test_loss: 0.5311
+
+[INFO][21:19:47]: ----------------------round 56------------------------------
+[INFO][21:19:49]: aggregate weights (median)
+[INFO][21:19:49]: generate attack (krum)
+[INFO][21:19:49]: training acc: 0.8180,test acc: 0.8696, test_loss: 0.5268
+
+[INFO][21:19:49]: ----------------------round 57------------------------------
+[INFO][21:19:50]: aggregate weights (median)
+[INFO][21:19:50]: generate attack (krum)
+[INFO][21:19:50]: training acc: 0.8320,test acc: 0.7971, test_loss: 0.5257
+
+[INFO][21:19:50]: ----------------------round 58------------------------------
+[INFO][21:19:52]: aggregate weights (median)
+[INFO][21:19:52]: generate attack (krum)
+[INFO][21:19:52]: training acc: 0.7960,test acc: 0.8261, test_loss: 0.5218
+
+[INFO][21:19:52]: ----------------------round 59------------------------------
+[INFO][21:19:53]: aggregate weights (median)
+[INFO][21:19:53]: generate attack (krum)
+[INFO][21:19:53]: training acc: 0.8080,test acc: 0.8551, test_loss: 0.5175
+
+[INFO][21:19:53]: ----------------------round 60------------------------------
+[INFO][21:19:54]: aggregate weights (median)
+[INFO][21:19:54]: generate attack (krum)
+[INFO][21:19:54]: training acc: 0.8240,test acc: 0.8696, test_loss: 0.5144
+
+[INFO][21:19:54]: ----------------------round 61------------------------------
+[INFO][21:19:56]: aggregate weights (median)
+[INFO][21:19:56]: generate attack (krum)
+[INFO][21:19:56]: training acc: 0.8260,test acc: 0.8406, test_loss: 0.5127
+
+[INFO][21:19:56]: ----------------------round 62------------------------------
+[INFO][21:19:57]: aggregate weights (median)
+[INFO][21:19:57]: generate attack (krum)
+[INFO][21:19:57]: training acc: 0.8220,test acc: 0.8406, test_loss: 0.5107
+
+[INFO][21:19:57]: ----------------------round 63------------------------------
+[INFO][21:19:59]: aggregate weights (median)
+[INFO][21:19:59]: generate attack (krum)
+[INFO][21:19:59]: training acc: 0.8180,test acc: 0.8261, test_loss: 0.5089
+
+[INFO][21:19:59]: ----------------------round 64------------------------------
+[INFO][21:20:00]: aggregate weights (median)
+[INFO][21:20:00]: generate attack (krum)
+[INFO][21:20:00]: training acc: 0.8180,test acc: 0.7971, test_loss: 0.5091
+
+[INFO][21:20:00]: ----------------------round 65------------------------------
+[INFO][21:20:01]: aggregate weights (median)
+[INFO][21:20:01]: generate attack (krum)
+[INFO][21:20:01]: training acc: 0.8040,test acc: 0.7971, test_loss: 0.5073
+
+[INFO][21:20:01]: ----------------------round 66------------------------------
+[INFO][21:20:03]: aggregate weights (median)
+[INFO][21:20:03]: generate attack (krum)
+[INFO][21:20:03]: training acc: 0.8040,test acc: 0.7971, test_loss: 0.5081
+
+[INFO][21:20:03]: ----------------------round 67------------------------------
+[INFO][21:20:04]: aggregate weights (median)
+[INFO][21:20:04]: generate attack (krum)
+[INFO][21:20:04]: training acc: 0.7980,test acc: 0.7971, test_loss: 0.5063
+
+[INFO][21:20:04]: ----------------------round 68------------------------------
+[INFO][21:20:06]: aggregate weights (median)
+[INFO][21:20:06]: generate attack (krum)
+[INFO][21:20:06]: training acc: 0.8020,test acc: 0.7826, test_loss: 0.5074
+
+[INFO][21:20:06]: ----------------------round 69------------------------------
+[INFO][21:20:07]: aggregate weights (median)
+[INFO][21:20:07]: generate attack (krum)
+[INFO][21:20:07]: training acc: 0.7900,test acc: 0.7826, test_loss: 0.5088
+
+[INFO][21:20:07]: ----------------------round 70------------------------------
+[INFO][21:20:08]: aggregate weights (median)
+[INFO][21:20:08]: generate attack (krum)
+[INFO][21:20:08]: training acc: 0.7840,test acc: 0.7826, test_loss: 0.5065
+
+[INFO][21:20:08]: ----------------------round 71------------------------------
+[INFO][21:20:10]: aggregate weights (median)
+[INFO][21:20:10]: generate attack (krum)
+[INFO][21:20:10]: training acc: 0.7880,test acc: 0.7971, test_loss: 0.5009
+
+[INFO][21:20:10]: ----------------------round 72------------------------------
+[INFO][21:20:11]: aggregate weights (median)
+[INFO][21:20:11]: generate attack (krum)
+[INFO][21:20:11]: training acc: 0.8060,test acc: 0.8551, test_loss: 0.4904
+
+[INFO][21:20:11]: ----------------------round 73------------------------------
+[INFO][21:20:13]: aggregate weights (median)
+[INFO][21:20:13]: generate attack (krum)
+[INFO][21:20:13]: training acc: 0.8440,test acc: 0.8551, test_loss: 0.4873
+
+[INFO][21:20:13]: ----------------------round 74------------------------------
+[INFO][21:20:14]: aggregate weights (median)
+[INFO][21:20:14]: generate attack (krum)
+[INFO][21:20:14]: training acc: 0.8540,test acc: 0.8551, test_loss: 0.4826
+
+[INFO][21:20:14]: ----------------------round 75------------------------------
+[INFO][21:20:15]: aggregate weights (median)
+[INFO][21:20:15]: generate attack (krum)
+[INFO][21:20:15]: training acc: 0.8620,test acc: 0.8551, test_loss: 0.4804
+
+[INFO][21:20:15]: ----------------------round 76------------------------------
+[INFO][21:20:17]: aggregate weights (median)
+[INFO][21:20:17]: generate attack (krum)
+[INFO][21:20:17]: training acc: 0.8600,test acc: 0.8551, test_loss: 0.4784
+
+[INFO][21:20:17]: ----------------------round 77------------------------------
+[INFO][21:20:18]: aggregate weights (median)
+[INFO][21:20:18]: generate attack (krum)
+[INFO][21:20:18]: training acc: 0.8640,test acc: 0.8551, test_loss: 0.4769
+
+[INFO][21:20:18]: ----------------------round 78------------------------------
+[INFO][21:20:20]: aggregate weights (median)
+[INFO][21:20:20]: generate attack (krum)
+[INFO][21:20:20]: training acc: 0.8680,test acc: 0.8551, test_loss: 0.4740
+
+[INFO][21:20:20]: ----------------------round 79------------------------------
+[INFO][21:20:21]: aggregate weights (median)
+[INFO][21:20:21]: generate attack (krum)
+[INFO][21:20:21]: training acc: 0.8640,test acc: 0.8551, test_loss: 0.4723
+
+[INFO][21:20:21]: ----------------------round 80------------------------------
+[INFO][21:20:23]: aggregate weights (median)
+[INFO][21:20:23]: generate attack (krum)
+[INFO][21:20:23]: training acc: 0.8640,test acc: 0.8551, test_loss: 0.4707
+
+[INFO][21:20:23]: ----------------------round 81------------------------------
+[INFO][21:20:24]: aggregate weights (median)
+[INFO][21:20:24]: generate attack (krum)
+[INFO][21:20:24]: training acc: 0.8660,test acc: 0.8551, test_loss: 0.4692
+
+[INFO][21:20:24]: ----------------------round 82------------------------------
+[INFO][21:20:26]: aggregate weights (median)
+[INFO][21:20:26]: generate attack (krum)
+[INFO][21:20:26]: training acc: 0.8660,test acc: 0.8551, test_loss: 0.4680
+
+[INFO][21:20:26]: ----------------------round 83------------------------------
+[INFO][21:20:27]: aggregate weights (median)
+[INFO][21:20:27]: generate attack (krum)
+[INFO][21:20:27]: training acc: 0.8640,test acc: 0.8551, test_loss: 0.4664
+
+[INFO][21:20:27]: ----------------------round 84------------------------------
+[INFO][21:20:29]: aggregate weights (median)
+[INFO][21:20:29]: generate attack (krum)
+[INFO][21:20:29]: training acc: 0.8680,test acc: 0.8551, test_loss: 0.4650
+
+[INFO][21:20:29]: ----------------------round 85------------------------------
+[INFO][21:20:30]: aggregate weights (median)
+[INFO][21:20:30]: generate attack (krum)
+[INFO][21:20:30]: training acc: 0.8640,test acc: 0.8551, test_loss: 0.4642
+
+[INFO][21:20:30]: ----------------------round 86------------------------------
+[INFO][21:20:31]: aggregate weights (median)
+[INFO][21:20:31]: generate attack (krum)
+[INFO][21:20:31]: training acc: 0.8740,test acc: 0.8551, test_loss: 0.4628
+
+[INFO][21:20:31]: ----------------------round 87------------------------------
+[INFO][21:20:33]: aggregate weights (median)
+[INFO][21:20:33]: generate attack (krum)
+[INFO][21:20:33]: training acc: 0.8800,test acc: 0.8551, test_loss: 0.4610
+
+[INFO][21:20:33]: ----------------------round 88------------------------------
+[INFO][21:20:34]: aggregate weights (median)
+[INFO][21:20:34]: generate attack (krum)
+[INFO][21:20:34]: training acc: 0.8780,test acc: 0.8551, test_loss: 0.4593
+
+[INFO][21:20:34]: ----------------------round 89------------------------------
+[INFO][21:20:36]: aggregate weights (median)
+[INFO][21:20:36]: generate attack (krum)
+[INFO][21:20:36]: training acc: 0.8740,test acc: 0.8551, test_loss: 0.4578
+
+[INFO][21:20:36]: ----------------------round 90------------------------------
+[INFO][21:20:37]: aggregate weights (median)
+[INFO][21:20:37]: generate attack (krum)
+[INFO][21:20:37]: training acc: 0.8780,test acc: 0.8696, test_loss: 0.4565
+
+[INFO][21:20:37]: ----------------------round 91------------------------------
+[INFO][21:20:39]: aggregate weights (median)
+[INFO][21:20:39]: generate attack (krum)
+[INFO][21:20:39]: training acc: 0.8760,test acc: 0.8551, test_loss: 0.4556
+
+[INFO][21:20:39]: ----------------------round 92------------------------------
+[INFO][21:20:40]: aggregate weights (median)
+[INFO][21:20:40]: generate attack (krum)
+[INFO][21:20:40]: training acc: 0.8760,test acc: 0.8551, test_loss: 0.4547
+
+[INFO][21:20:40]: ----------------------round 93------------------------------
+[INFO][21:20:42]: aggregate weights (median)
+[INFO][21:20:42]: generate attack (krum)
+[INFO][21:20:42]: training acc: 0.8760,test acc: 0.8696, test_loss: 0.4539
+
+[INFO][21:20:42]: ----------------------round 94------------------------------
+[INFO][21:20:43]: aggregate weights (median)
+[INFO][21:20:43]: generate attack (krum)
+[INFO][21:20:43]: training acc: 0.8740,test acc: 0.8696, test_loss: 0.4534
+
+[INFO][21:20:43]: ----------------------round 95------------------------------
+[INFO][21:20:45]: aggregate weights (median)
+[INFO][21:20:45]: generate attack (krum)
+[INFO][21:20:45]: training acc: 0.8800,test acc: 0.8551, test_loss: 0.4524
+
+[INFO][21:20:45]: ----------------------round 96------------------------------
+[INFO][21:20:46]: aggregate weights (median)
+[INFO][21:20:46]: generate attack (krum)
+[INFO][21:20:46]: training acc: 0.8800,test acc: 0.8551, test_loss: 0.4516
+
+[INFO][21:20:46]: ----------------------round 97------------------------------
+[INFO][21:20:47]: aggregate weights (median)
+[INFO][21:20:47]: generate attack (krum)
+[INFO][21:20:48]: training acc: 0.8800,test acc: 0.8551, test_loss: 0.4508
+
+[INFO][21:20:48]: ----------------------round 98------------------------------
+[INFO][21:20:49]: aggregate weights (median)
+[INFO][21:20:49]: generate attack (krum)
+[INFO][21:20:49]: training acc: 0.8760,test acc: 0.8551, test_loss: 0.4511
+
+[INFO][21:20:49]: ----------------------round 99------------------------------
+[INFO][21:20:51]: aggregate weights (median)
+[INFO][21:20:51]: generate attack (krum)
+[INFO][21:20:51]: training acc: 0.8700,test acc: 0.8551, test_loss: 0.4501
+
+[INFO][21:20:51]: ----------------------round 100------------------------------
+[INFO][21:20:52]: aggregate weights (median)
+[INFO][21:20:52]: generate attack (krum)
+[INFO][21:20:52]: training acc: 0.8660,test acc: 0.8551, test_loss: 0.4501
+

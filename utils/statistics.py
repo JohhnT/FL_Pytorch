@@ -141,7 +141,7 @@ def get_distribution_model(data):
     mu = np.mean(data)
     sigma = np.std(data)
 
-    gaussianAIC = Gaussian.aic(data)
+    # gaussianAIC = Gaussian.aic(data)
 
     try:
         logGaussian = LogGaussian.test_fitness(data, mu, sigma)
@@ -149,9 +149,11 @@ def get_distribution_model(data):
         logGaussian = False
 
     if logGaussian:
-        logGaussianAIC = LogGaussian.aic(data)
-        if logGaussianAIC < gaussianAIC:
-            return LogGaussian.code
+        # *
+        # logGaussianAIC = LogGaussian.aic(data)
+        # if logGaussianAIC < gaussianAIC:
+        #     return LogGaussian.code
+        return LogGaussian.code
     return Gaussian.code
 
 
