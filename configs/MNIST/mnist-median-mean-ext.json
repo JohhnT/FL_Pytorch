@@ -1,6 +1,6 @@
 {
     "clients": {
-        "compromised": 10,
+        "compromised": 50,
         "compromised_attack": "trimmed_mean_ext",
         "total": 100,
         "fraction": 1
