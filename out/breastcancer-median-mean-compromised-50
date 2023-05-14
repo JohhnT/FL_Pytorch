@@ -1,0 +1,502 @@
+[INFO][08:20:54]: config:configs/BreastCancer/breastcancer-median-mean.json,  log:INFO
+[INFO][08:20:54]: dataset: BreastCancer
+[INFO][08:20:54]: ----------------------round 1------------------------------
+[INFO][08:20:55]: aggregate weights (median)
+[INFO][08:20:55]: generate attack (trimmed_mean)
+[INFO][08:20:55]: training acc: 0.7900,test acc: 0.7681, test_loss: 0.6899
+
+[INFO][08:20:55]: ----------------------round 2------------------------------
+[INFO][08:20:56]: aggregate weights (median)
+[INFO][08:20:56]: generate attack (trimmed_mean)
+[INFO][08:20:56]: training acc: 0.7100,test acc: 0.3623, test_loss: 0.6928
+
+[INFO][08:20:56]: ----------------------round 3------------------------------
+[INFO][08:20:57]: aggregate weights (median)
+[INFO][08:20:57]: generate attack (trimmed_mean)
+[INFO][08:20:57]: training acc: 0.5780,test acc: 0.3478, test_loss: 0.6930
+
+[INFO][08:20:57]: ----------------------round 4------------------------------
+[INFO][08:20:58]: aggregate weights (median)
+[INFO][08:20:58]: generate attack (trimmed_mean)
+[INFO][08:20:58]: training acc: 0.5700,test acc: 0.3623, test_loss: 0.6927
+
+[INFO][08:20:58]: ----------------------round 5------------------------------
+[INFO][08:20:59]: aggregate weights (median)
+[INFO][08:20:59]: generate attack (trimmed_mean)
+[INFO][08:20:59]: training acc: 0.5820,test acc: 0.3478, test_loss: 0.6928
+
+[INFO][08:20:59]: ----------------------round 6------------------------------
+[INFO][08:21:00]: aggregate weights (median)
+[INFO][08:21:00]: generate attack (trimmed_mean)
+[INFO][08:21:00]: training acc: 0.5780,test acc: 0.5942, test_loss: 0.6896
+
+[INFO][08:21:00]: ----------------------round 7------------------------------
+[INFO][08:21:01]: aggregate weights (median)
+[INFO][08:21:01]: generate attack (trimmed_mean)
+[INFO][08:21:01]: training acc: 0.7040,test acc: 0.3623, test_loss: 0.6926
+
+[INFO][08:21:01]: ----------------------round 8------------------------------
+[INFO][08:21:02]: aggregate weights (median)
+[INFO][08:21:02]: generate attack (trimmed_mean)
+[INFO][08:21:02]: training acc: 0.5860,test acc: 0.3623, test_loss: 0.6927
+
+[INFO][08:21:02]: ----------------------round 9------------------------------
+[INFO][08:21:03]: aggregate weights (median)
+[INFO][08:21:03]: generate attack (trimmed_mean)
+[INFO][08:21:03]: training acc: 0.5800,test acc: 0.3623, test_loss: 0.6927
+
+[INFO][08:21:03]: ----------------------round 10------------------------------
+[INFO][08:21:03]: aggregate weights (median)
+[INFO][08:21:03]: generate attack (trimmed_mean)
+[INFO][08:21:03]: training acc: 0.5820,test acc: 0.3478, test_loss: 0.6929
+
+[INFO][08:21:03]: ----------------------round 11------------------------------
+[INFO][08:21:04]: aggregate weights (median)
+[INFO][08:21:04]: generate attack (trimmed_mean)
+[INFO][08:21:04]: training acc: 0.5720,test acc: 0.3478, test_loss: 0.6931
+
+[INFO][08:21:04]: ----------------------round 12------------------------------
+[INFO][08:21:05]: aggregate weights (median)
+[INFO][08:21:05]: generate attack (trimmed_mean)
+[INFO][08:21:05]: training acc: 0.5700,test acc: 0.3623, test_loss: 0.6926
+
+[INFO][08:21:05]: ----------------------round 13------------------------------
+[INFO][08:21:06]: aggregate weights (median)
+[INFO][08:21:06]: generate attack (trimmed_mean)
+[INFO][08:21:06]: training acc: 0.5840,test acc: 0.3623, test_loss: 0.6929
+
+[INFO][08:21:06]: ----------------------round 14------------------------------
+[INFO][08:21:07]: aggregate weights (median)
+[INFO][08:21:07]: generate attack (trimmed_mean)
+[INFO][08:21:07]: training acc: 0.5760,test acc: 0.3623, test_loss: 0.6927
+
+[INFO][08:21:07]: ----------------------round 15------------------------------
+[INFO][08:21:08]: aggregate weights (median)
+[INFO][08:21:08]: generate attack (trimmed_mean)
+[INFO][08:21:08]: training acc: 0.5820,test acc: 0.3623, test_loss: 0.6927
+
+[INFO][08:21:08]: ----------------------round 16------------------------------
+[INFO][08:21:09]: aggregate weights (median)
+[INFO][08:21:09]: generate attack (trimmed_mean)
+[INFO][08:21:09]: training acc: 0.5820,test acc: 0.3623, test_loss: 0.6926
+
+[INFO][08:21:09]: ----------------------round 17------------------------------
+[INFO][08:21:10]: aggregate weights (median)
+[INFO][08:21:10]: generate attack (trimmed_mean)
+[INFO][08:21:10]: training acc: 0.5960,test acc: 0.6522, test_loss: 0.6894
+
+[INFO][08:21:10]: ----------------------round 18------------------------------
+[INFO][08:21:10]: aggregate weights (median)
+[INFO][08:21:10]: generate attack (trimmed_mean)
+[INFO][08:21:10]: training acc: 0.7040,test acc: 0.3478, test_loss: 0.6931
+
+[INFO][08:21:10]: ----------------------round 19------------------------------
+[INFO][08:21:11]: aggregate weights (median)
+[INFO][08:21:11]: generate attack (trimmed_mean)
+[INFO][08:21:11]: training acc: 0.5640,test acc: 0.3478, test_loss: 0.6931
+
+[INFO][08:21:11]: ----------------------round 20------------------------------
+[INFO][08:21:12]: aggregate weights (median)
+[INFO][08:21:12]: generate attack (trimmed_mean)
+[INFO][08:21:12]: training acc: 0.5700,test acc: 0.5942, test_loss: 0.6897
+
+[INFO][08:21:12]: ----------------------round 21------------------------------
+[INFO][08:21:13]: aggregate weights (median)
+[INFO][08:21:13]: generate attack (trimmed_mean)
+[INFO][08:21:13]: training acc: 0.6960,test acc: 0.6377, test_loss: 0.6891
+
+[INFO][08:21:13]: ----------------------round 22------------------------------
+[INFO][08:21:14]: aggregate weights (median)
+[INFO][08:21:14]: generate attack (trimmed_mean)
+[INFO][08:21:14]: training acc: 0.7060,test acc: 0.3623, test_loss: 0.6925
+
+[INFO][08:21:14]: ----------------------round 23------------------------------
+[INFO][08:21:15]: aggregate weights (median)
+[INFO][08:21:15]: generate attack (trimmed_mean)
+[INFO][08:21:15]: training acc: 0.5980,test acc: 0.3623, test_loss: 0.6926
+
+[INFO][08:21:15]: ----------------------round 24------------------------------
+[INFO][08:21:16]: aggregate weights (median)
+[INFO][08:21:16]: generate attack (trimmed_mean)
+[INFO][08:21:16]: training acc: 0.5940,test acc: 0.3478, test_loss: 0.6929
+
+[INFO][08:21:16]: ----------------------round 25------------------------------
+[INFO][08:21:17]: aggregate weights (median)
+[INFO][08:21:17]: generate attack (trimmed_mean)
+[INFO][08:21:17]: training acc: 0.5720,test acc: 0.3478, test_loss: 0.6928
+
+[INFO][08:21:17]: ----------------------round 26------------------------------
+[INFO][08:21:17]: aggregate weights (median)
+[INFO][08:21:17]: generate attack (trimmed_mean)
+[INFO][08:21:17]: training acc: 0.5780,test acc: 0.3478, test_loss: 0.6929
+
+[INFO][08:21:17]: ----------------------round 27------------------------------
+[INFO][08:21:18]: aggregate weights (median)
+[INFO][08:21:18]: generate attack (trimmed_mean)
+[INFO][08:21:18]: training acc: 0.5740,test acc: 0.4638, test_loss: 0.6905
+
+[INFO][08:21:18]: ----------------------round 28------------------------------
+[INFO][08:21:19]: aggregate weights (median)
+[INFO][08:21:19]: generate attack (trimmed_mean)
+[INFO][08:21:19]: training acc: 0.6700,test acc: 0.8551, test_loss: 0.6865
+
+[INFO][08:21:19]: ----------------------round 29------------------------------
+[INFO][08:21:20]: aggregate weights (median)
+[INFO][08:21:20]: generate attack (trimmed_mean)
+[INFO][08:21:20]: training acc: 0.7480,test acc: 0.8696, test_loss: 0.6866
+
+[INFO][08:21:20]: ----------------------round 30------------------------------
+[INFO][08:21:21]: aggregate weights (median)
+[INFO][08:21:21]: generate attack (trimmed_mean)
+[INFO][08:21:21]: training acc: 0.7480,test acc: 0.8116, test_loss: 0.6877
+
+[INFO][08:21:21]: ----------------------round 31------------------------------
+[INFO][08:21:22]: aggregate weights (median)
+[INFO][08:21:22]: generate attack (trimmed_mean)
+[INFO][08:21:22]: training acc: 0.7420,test acc: 0.8406, test_loss: 0.6870
+
+[INFO][08:21:22]: ----------------------round 32------------------------------
+[INFO][08:21:23]: aggregate weights (median)
+[INFO][08:21:23]: generate attack (trimmed_mean)
+[INFO][08:21:23]: training acc: 0.7460,test acc: 0.8696, test_loss: 0.6849
+
+[INFO][08:21:23]: ----------------------round 33------------------------------
+[INFO][08:21:24]: aggregate weights (median)
+[INFO][08:21:24]: generate attack (trimmed_mean)
+[INFO][08:21:24]: training acc: 0.7440,test acc: 0.7826, test_loss: 0.6876
+
+[INFO][08:21:24]: ----------------------round 34------------------------------
+[INFO][08:21:25]: aggregate weights (median)
+[INFO][08:21:25]: generate attack (trimmed_mean)
+[INFO][08:21:25]: training acc: 0.7360,test acc: 0.8551, test_loss: 0.6869
+
+[INFO][08:21:25]: ----------------------round 35------------------------------
+[INFO][08:21:25]: aggregate weights (median)
+[INFO][08:21:25]: generate attack (trimmed_mean)
+[INFO][08:21:25]: training acc: 0.7480,test acc: 0.7826, test_loss: 0.6876
+
+[INFO][08:21:25]: ----------------------round 36------------------------------
+[INFO][08:21:26]: aggregate weights (median)
+[INFO][08:21:26]: generate attack (trimmed_mean)
+[INFO][08:21:26]: training acc: 0.7400,test acc: 0.8696, test_loss: 0.6867
+
+[INFO][08:21:26]: ----------------------round 37------------------------------
+[INFO][08:21:27]: aggregate weights (median)
+[INFO][08:21:27]: generate attack (trimmed_mean)
+[INFO][08:21:27]: training acc: 0.7500,test acc: 0.8406, test_loss: 0.6873
+
+[INFO][08:21:27]: ----------------------round 38------------------------------
+[INFO][08:21:28]: aggregate weights (median)
+[INFO][08:21:28]: generate attack (trimmed_mean)
+[INFO][08:21:28]: training acc: 0.7440,test acc: 0.8551, test_loss: 0.6869
+
+[INFO][08:21:28]: ----------------------round 39------------------------------
+[INFO][08:21:29]: aggregate weights (median)
+[INFO][08:21:29]: generate attack (trimmed_mean)
+[INFO][08:21:29]: training acc: 0.7480,test acc: 0.7826, test_loss: 0.6878
+
+[INFO][08:21:29]: ----------------------round 40------------------------------
+[INFO][08:21:30]: aggregate weights (median)
+[INFO][08:21:30]: generate attack (trimmed_mean)
+[INFO][08:21:30]: training acc: 0.7400,test acc: 0.8551, test_loss: 0.6869
+
+[INFO][08:21:30]: ----------------------round 41------------------------------
+[INFO][08:21:31]: aggregate weights (median)
+[INFO][08:21:31]: generate attack (trimmed_mean)
+[INFO][08:21:31]: training acc: 0.7480,test acc: 0.8406, test_loss: 0.6874
+
+[INFO][08:21:31]: ----------------------round 42------------------------------
+[INFO][08:21:32]: aggregate weights (median)
+[INFO][08:21:32]: generate attack (trimmed_mean)
+[INFO][08:21:32]: training acc: 0.7460,test acc: 0.8696, test_loss: 0.6866
+
+[INFO][08:21:32]: ----------------------round 43------------------------------
+[INFO][08:21:32]: aggregate weights (median)
+[INFO][08:21:32]: generate attack (trimmed_mean)
+[INFO][08:21:33]: training acc: 0.7460,test acc: 0.8116, test_loss: 0.6876
+
+[INFO][08:21:33]: ----------------------round 44------------------------------
+[INFO][08:21:33]: aggregate weights (median)
+[INFO][08:21:33]: generate attack (trimmed_mean)
+[INFO][08:21:33]: training acc: 0.7420,test acc: 0.8261, test_loss: 0.6870
+
+[INFO][08:21:33]: ----------------------round 45------------------------------
+[INFO][08:21:34]: aggregate weights (median)
+[INFO][08:21:34]: generate attack (trimmed_mean)
+[INFO][08:21:34]: training acc: 0.7460,test acc: 0.8261, test_loss: 0.6875
+
+[INFO][08:21:34]: ----------------------round 46------------------------------
+[INFO][08:21:35]: aggregate weights (median)
+[INFO][08:21:35]: generate attack (trimmed_mean)
+[INFO][08:21:35]: training acc: 0.7420,test acc: 0.8696, test_loss: 0.6868
+
+[INFO][08:21:35]: ----------------------round 47------------------------------
+[INFO][08:21:36]: aggregate weights (median)
+[INFO][08:21:36]: generate attack (trimmed_mean)
+[INFO][08:21:36]: training acc: 0.7480,test acc: 0.8116, test_loss: 0.6876
+
+[INFO][08:21:36]: ----------------------round 48------------------------------
+[INFO][08:21:37]: aggregate weights (median)
+[INFO][08:21:37]: generate attack (trimmed_mean)
+[INFO][08:21:37]: training acc: 0.7420,test acc: 0.8696, test_loss: 0.6867
+
+[INFO][08:21:37]: ----------------------round 49------------------------------
+[INFO][08:21:38]: aggregate weights (median)
+[INFO][08:21:38]: generate attack (trimmed_mean)
+[INFO][08:21:38]: training acc: 0.7480,test acc: 0.8406, test_loss: 0.6874
+
+[INFO][08:21:38]: ----------------------round 50------------------------------
+[INFO][08:21:39]: aggregate weights (median)
+[INFO][08:21:39]: generate attack (trimmed_mean)
+[INFO][08:21:39]: training acc: 0.7460,test acc: 0.8696, test_loss: 0.6867
+
+[INFO][08:21:39]: ----------------------round 51------------------------------
+[INFO][08:21:40]: aggregate weights (median)
+[INFO][08:21:40]: generate attack (trimmed_mean)
+[INFO][08:21:40]: training acc: 0.7480,test acc: 0.8406, test_loss: 0.6874
+
+[INFO][08:21:40]: ----------------------round 52------------------------------
+[INFO][08:21:40]: aggregate weights (median)
+[INFO][08:21:40]: generate attack (trimmed_mean)
+[INFO][08:21:40]: training acc: 0.7460,test acc: 0.8696, test_loss: 0.6868
+
+[INFO][08:21:40]: ----------------------round 53------------------------------
+[INFO][08:21:41]: aggregate weights (median)
+[INFO][08:21:41]: generate attack (trimmed_mean)
+[INFO][08:21:41]: training acc: 0.7480,test acc: 0.7971, test_loss: 0.6877
+
+[INFO][08:21:41]: ----------------------round 54------------------------------
+[INFO][08:21:42]: aggregate weights (median)
+[INFO][08:21:42]: generate attack (trimmed_mean)
+[INFO][08:21:42]: training acc: 0.7380,test acc: 0.8551, test_loss: 0.6868
+
+[INFO][08:21:42]: ----------------------round 55------------------------------
+[INFO][08:21:43]: aggregate weights (median)
+[INFO][08:21:43]: generate attack (trimmed_mean)
+[INFO][08:21:43]: training acc: 0.7480,test acc: 0.8261, test_loss: 0.6875
+
+[INFO][08:21:43]: ----------------------round 56------------------------------
+[INFO][08:21:44]: aggregate weights (median)
+[INFO][08:21:44]: generate attack (trimmed_mean)
+[INFO][08:21:44]: training acc: 0.7420,test acc: 0.8696, test_loss: 0.6868
+
+[INFO][08:21:44]: ----------------------round 57------------------------------
+[INFO][08:21:45]: aggregate weights (median)
+[INFO][08:21:45]: generate attack (trimmed_mean)
+[INFO][08:21:45]: training acc: 0.7480,test acc: 0.8261, test_loss: 0.6876
+
+[INFO][08:21:45]: ----------------------round 58------------------------------
+[INFO][08:21:46]: aggregate weights (median)
+[INFO][08:21:46]: generate attack (trimmed_mean)
+[INFO][08:21:46]: training acc: 0.7420,test acc: 0.8696, test_loss: 0.6868
+
+[INFO][08:21:46]: ----------------------round 59------------------------------
+[INFO][08:21:47]: aggregate weights (median)
+[INFO][08:21:47]: generate attack (trimmed_mean)
+[INFO][08:21:47]: training acc: 0.7480,test acc: 0.8406, test_loss: 0.6874
+
+[INFO][08:21:47]: ----------------------round 60------------------------------
+[INFO][08:21:47]: aggregate weights (median)
+[INFO][08:21:47]: generate attack (trimmed_mean)
+[INFO][08:21:47]: training acc: 0.7460,test acc: 0.8696, test_loss: 0.6866
+
+[INFO][08:21:47]: ----------------------round 61------------------------------
+[INFO][08:21:48]: aggregate weights (median)
+[INFO][08:21:48]: generate attack (trimmed_mean)
+[INFO][08:21:48]: training acc: 0.7460,test acc: 0.8406, test_loss: 0.6875
+
+[INFO][08:21:48]: ----------------------round 62------------------------------
+[INFO][08:21:49]: aggregate weights (median)
+[INFO][08:21:49]: generate attack (trimmed_mean)
+[INFO][08:21:49]: training acc: 0.7440,test acc: 0.8696, test_loss: 0.6867
+
+[INFO][08:21:49]: ----------------------round 63------------------------------
+[INFO][08:21:50]: aggregate weights (median)
+[INFO][08:21:50]: generate attack (trimmed_mean)
+[INFO][08:21:50]: training acc: 0.7500,test acc: 0.7971, test_loss: 0.6877
+
+[INFO][08:21:50]: ----------------------round 64------------------------------
+[INFO][08:21:51]: aggregate weights (median)
+[INFO][08:21:51]: generate attack (trimmed_mean)
+[INFO][08:21:51]: training acc: 0.7420,test acc: 0.8551, test_loss: 0.6869
+
+[INFO][08:21:51]: ----------------------round 65------------------------------
+[INFO][08:21:52]: aggregate weights (median)
+[INFO][08:21:52]: generate attack (trimmed_mean)
+[INFO][08:21:52]: training acc: 0.7480,test acc: 0.8116, test_loss: 0.6876
+
+[INFO][08:21:52]: ----------------------round 66------------------------------
+[INFO][08:21:53]: aggregate weights (median)
+[INFO][08:21:53]: generate attack (trimmed_mean)
+[INFO][08:21:53]: training acc: 0.7420,test acc: 0.8261, test_loss: 0.6870
+
+[INFO][08:21:53]: ----------------------round 67------------------------------
+[INFO][08:21:54]: aggregate weights (median)
+[INFO][08:21:54]: generate attack (trimmed_mean)
+[INFO][08:21:54]: training acc: 0.7460,test acc: 0.8116, test_loss: 0.6876
+
+[INFO][08:21:54]: ----------------------round 68------------------------------
+[INFO][08:21:55]: aggregate weights (median)
+[INFO][08:21:55]: generate attack (trimmed_mean)
+[INFO][08:21:55]: training acc: 0.7420,test acc: 0.7536, test_loss: 0.6827
+
+[INFO][08:21:55]: ----------------------round 69------------------------------
+[INFO][08:21:55]: aggregate weights (median)
+[INFO][08:21:55]: generate attack (trimmed_mean)
+[INFO][08:21:55]: training acc: 0.7160,test acc: 0.8406, test_loss: 0.6843
+
+[INFO][08:21:55]: ----------------------round 70------------------------------
+[INFO][08:21:56]: aggregate weights (median)
+[INFO][08:21:56]: generate attack (trimmed_mean)
+[INFO][08:21:56]: training acc: 0.7460,test acc: 0.9130, test_loss: 0.6856
+
+[INFO][08:21:56]: ----------------------round 71------------------------------
+[INFO][08:21:57]: aggregate weights (median)
+[INFO][08:21:57]: generate attack (trimmed_mean)
+[INFO][08:21:57]: training acc: 0.7520,test acc: 0.8116, test_loss: 0.6833
+
+[INFO][08:21:57]: ----------------------round 72------------------------------
+[INFO][08:21:58]: aggregate weights (median)
+[INFO][08:21:58]: generate attack (trimmed_mean)
+[INFO][08:21:58]: training acc: 0.7340,test acc: 0.8696, test_loss: 0.6847
+
+[INFO][08:21:58]: ----------------------round 73------------------------------
+[INFO][08:21:59]: aggregate weights (median)
+[INFO][08:21:59]: generate attack (trimmed_mean)
+[INFO][08:21:59]: training acc: 0.7460,test acc: 0.7826, test_loss: 0.6831
+
+[INFO][08:21:59]: ----------------------round 74------------------------------
+[INFO][08:22:00]: aggregate weights (median)
+[INFO][08:22:00]: generate attack (trimmed_mean)
+[INFO][08:22:00]: training acc: 0.7200,test acc: 0.8841, test_loss: 0.6850
+
+[INFO][08:22:00]: ----------------------round 75------------------------------
+[INFO][08:22:01]: aggregate weights (median)
+[INFO][08:22:01]: generate attack (trimmed_mean)
+[INFO][08:22:01]: training acc: 0.7480,test acc: 0.8116, test_loss: 0.6833
+
+[INFO][08:22:01]: ----------------------round 76------------------------------
+[INFO][08:22:02]: aggregate weights (median)
+[INFO][08:22:02]: generate attack (trimmed_mean)
+[INFO][08:22:02]: training acc: 0.7240,test acc: 0.8551, test_loss: 0.6846
+
+[INFO][08:22:02]: ----------------------round 77------------------------------
+[INFO][08:22:02]: aggregate weights (median)
+[INFO][08:22:02]: generate attack (trimmed_mean)
+[INFO][08:22:02]: training acc: 0.7440,test acc: 0.7826, test_loss: 0.6831
+
+[INFO][08:22:02]: ----------------------round 78------------------------------
+[INFO][08:22:03]: aggregate weights (median)
+[INFO][08:22:03]: generate attack (trimmed_mean)
+[INFO][08:22:03]: training acc: 0.7200,test acc: 0.8841, test_loss: 0.6851
+
+[INFO][08:22:03]: ----------------------round 79------------------------------
+[INFO][08:22:04]: aggregate weights (median)
+[INFO][08:22:04]: generate attack (trimmed_mean)
+[INFO][08:22:04]: training acc: 0.7440,test acc: 0.8116, test_loss: 0.6833
+
+[INFO][08:22:04]: ----------------------round 80------------------------------
+[INFO][08:22:05]: aggregate weights (median)
+[INFO][08:22:05]: generate attack (trimmed_mean)
+[INFO][08:22:05]: training acc: 0.7280,test acc: 0.8551, test_loss: 0.6847
+
+[INFO][08:22:05]: ----------------------round 81------------------------------
+[INFO][08:22:06]: aggregate weights (median)
+[INFO][08:22:06]: generate attack (trimmed_mean)
+[INFO][08:22:06]: training acc: 0.7480,test acc: 0.7826, test_loss: 0.6829
+
+[INFO][08:22:06]: ----------------------round 82------------------------------
+[INFO][08:22:07]: aggregate weights (median)
+[INFO][08:22:07]: generate attack (trimmed_mean)
+[INFO][08:22:07]: training acc: 0.7200,test acc: 0.8841, test_loss: 0.6850
+
+[INFO][08:22:07]: ----------------------round 83------------------------------
+[INFO][08:22:08]: aggregate weights (median)
+[INFO][08:22:08]: generate attack (trimmed_mean)
+[INFO][08:22:08]: training acc: 0.7480,test acc: 0.8116, test_loss: 0.6832
+
+[INFO][08:22:08]: ----------------------round 84------------------------------
+[INFO][08:22:09]: aggregate weights (median)
+[INFO][08:22:09]: generate attack (trimmed_mean)
+[INFO][08:22:09]: training acc: 0.7240,test acc: 0.8551, test_loss: 0.6844
+
+[INFO][08:22:09]: ----------------------round 85------------------------------
+[INFO][08:22:09]: aggregate weights (median)
+[INFO][08:22:09]: generate attack (trimmed_mean)
+[INFO][08:22:09]: training acc: 0.7460,test acc: 0.7826, test_loss: 0.6831
+
+[INFO][08:22:09]: ----------------------round 86------------------------------
+[INFO][08:22:10]: aggregate weights (median)
+[INFO][08:22:10]: generate attack (trimmed_mean)
+[INFO][08:22:10]: training acc: 0.7200,test acc: 0.8841, test_loss: 0.6850
+
+[INFO][08:22:10]: ----------------------round 87------------------------------
+[INFO][08:22:11]: aggregate weights (median)
+[INFO][08:22:11]: generate attack (trimmed_mean)
+[INFO][08:22:11]: training acc: 0.7480,test acc: 0.8116, test_loss: 0.6832
+
+[INFO][08:22:11]: ----------------------round 88------------------------------
+[INFO][08:22:12]: aggregate weights (median)
+[INFO][08:22:12]: generate attack (trimmed_mean)
+[INFO][08:22:12]: training acc: 0.7240,test acc: 0.8551, test_loss: 0.6845
+
+[INFO][08:22:12]: ----------------------round 89------------------------------
+[INFO][08:22:13]: aggregate weights (median)
+[INFO][08:22:13]: generate attack (trimmed_mean)
+[INFO][08:22:13]: training acc: 0.7460,test acc: 0.7826, test_loss: 0.6831
+
+[INFO][08:22:13]: ----------------------round 90------------------------------
+[INFO][08:22:14]: aggregate weights (median)
+[INFO][08:22:14]: generate attack (trimmed_mean)
+[INFO][08:22:14]: training acc: 0.7200,test acc: 0.8841, test_loss: 0.6850
+
+[INFO][08:22:14]: ----------------------round 91------------------------------
+[INFO][08:22:15]: aggregate weights (median)
+[INFO][08:22:15]: generate attack (trimmed_mean)
+[INFO][08:22:15]: training acc: 0.7480,test acc: 0.8116, test_loss: 0.6832
+
+[INFO][08:22:15]: ----------------------round 92------------------------------
+[INFO][08:22:16]: aggregate weights (median)
+[INFO][08:22:16]: generate attack (trimmed_mean)
+[INFO][08:22:16]: training acc: 0.7240,test acc: 0.8551, test_loss: 0.6845
+
+[INFO][08:22:16]: ----------------------round 93------------------------------
+[INFO][08:22:17]: aggregate weights (median)
+[INFO][08:22:17]: generate attack (trimmed_mean)
+[INFO][08:22:17]: training acc: 0.7460,test acc: 0.7826, test_loss: 0.6830
+
+[INFO][08:22:17]: ----------------------round 94------------------------------
+[INFO][08:22:17]: aggregate weights (median)
+[INFO][08:22:17]: generate attack (trimmed_mean)
+[INFO][08:22:17]: training acc: 0.7200,test acc: 0.8841, test_loss: 0.6850
+
+[INFO][08:22:17]: ----------------------round 95------------------------------
+[INFO][08:22:18]: aggregate weights (median)
+[INFO][08:22:18]: generate attack (trimmed_mean)
+[INFO][08:22:18]: training acc: 0.7480,test acc: 0.7971, test_loss: 0.6832
+
+[INFO][08:22:18]: ----------------------round 96------------------------------
+[INFO][08:22:19]: aggregate weights (median)
+[INFO][08:22:19]: generate attack (trimmed_mean)
+[INFO][08:22:19]: training acc: 0.7240,test acc: 0.8551, test_loss: 0.6845
+
+[INFO][08:22:19]: ----------------------round 97------------------------------
+[INFO][08:22:20]: aggregate weights (median)
+[INFO][08:22:20]: generate attack (trimmed_mean)
+[INFO][08:22:20]: training acc: 0.7460,test acc: 0.7826, test_loss: 0.6830
+
+[INFO][08:22:20]: ----------------------round 98------------------------------
+[INFO][08:22:21]: aggregate weights (median)
+[INFO][08:22:21]: generate attack (trimmed_mean)
+[INFO][08:22:21]: training acc: 0.7200,test acc: 0.8841, test_loss: 0.6850
+
+[INFO][08:22:21]: ----------------------round 99------------------------------
+[INFO][08:22:22]: aggregate weights (median)
+[INFO][08:22:22]: generate attack (trimmed_mean)
+[INFO][08:22:22]: training acc: 0.7480,test acc: 0.8116, test_loss: 0.6832
+
+[INFO][08:22:22]: ----------------------round 100------------------------------
+[INFO][08:22:23]: aggregate weights (median)
+[INFO][08:22:23]: generate attack (trimmed_mean)
+[INFO][08:22:23]: training acc: 0.7240,test acc: 0.8551, test_loss: 0.6844
+

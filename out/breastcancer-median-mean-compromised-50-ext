@@ -1,0 +1,601 @@
+[INFO][08:18:05]: config:configs/BreastCancer/breastcancer-median-mean-ext.json,  log:INFO
+[INFO][08:18:05]: dataset: BreastCancer
+[INFO][08:18:05]: ----------------------round 1------------------------------
+[INFO][08:18:07]: aggregate weights (median)
+[INFO][08:18:07]: generate attack (trimmed_mean_ext)
+[INFO][08:18:07]: training acc: 0.6820,test acc: 0.6812, test_loss: 0.6888
+
+[INFO][08:18:07]: ----------------------round 2------------------------------
+[INFO][08:18:52]: aggregate weights (median)
+[INFO][08:18:52]: generate attack (trimmed_mean_ext)
+[INFO][08:18:52]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:18:52]: training acc: 0.6220,test acc: 0.7246, test_loss: 0.6894
+
+[INFO][08:18:52]: ----------------------round 3------------------------------
+[INFO][08:18:53]: aggregate weights (median)
+[INFO][08:18:53]: generate attack (trimmed_mean_ext)
+[INFO][08:18:53]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:18:53]: training acc: 0.7260,test acc: 0.4783, test_loss: 0.6903
+
+[INFO][08:18:53]: ----------------------round 4------------------------------
+[INFO][08:18:54]: aggregate weights (median)
+[INFO][08:18:54]: generate attack (trimmed_mean_ext)
+[INFO][08:18:54]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:18:54]: training acc: 0.6860,test acc: 0.5072, test_loss: 0.6902
+
+[INFO][08:18:54]: ----------------------round 5------------------------------
+[INFO][08:18:55]: aggregate weights (median)
+[INFO][08:18:55]: generate attack (trimmed_mean_ext)
+[INFO][08:18:55]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:18:55]: training acc: 0.6940,test acc: 0.5217, test_loss: 0.6900
+
+[INFO][08:18:55]: ----------------------round 6------------------------------
+[INFO][08:18:57]: aggregate weights (median)
+[INFO][08:18:57]: generate attack (trimmed_mean_ext)
+[INFO][08:18:57]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:18:57]: training acc: 0.6940,test acc: 0.5072, test_loss: 0.6902
+
+[INFO][08:18:57]: ----------------------round 7------------------------------
+[INFO][08:18:58]: aggregate weights (median)
+[INFO][08:18:58]: generate attack (trimmed_mean_ext)
+[INFO][08:18:58]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:18:58]: training acc: 0.6880,test acc: 0.5072, test_loss: 0.6901
+
+[INFO][08:18:58]: ----------------------round 8------------------------------
+[INFO][08:18:59]: aggregate weights (median)
+[INFO][08:18:59]: generate attack (trimmed_mean_ext)
+[INFO][08:18:59]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:18:59]: training acc: 0.6940,test acc: 0.4638, test_loss: 0.6904
+
+[INFO][08:18:59]: ----------------------round 9------------------------------
+[INFO][08:19:00]: aggregate weights (median)
+[INFO][08:19:00]: generate attack (trimmed_mean_ext)
+[INFO][08:19:00]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:19:00]: training acc: 0.6680,test acc: 0.4493, test_loss: 0.6905
+
+[INFO][08:19:00]: ----------------------round 10------------------------------
+[INFO][08:19:02]: aggregate weights (median)
+[INFO][08:19:02]: generate attack (trimmed_mean_ext)
+[INFO][08:19:02]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:19:02]: training acc: 0.6540,test acc: 0.4493, test_loss: 0.6906
+
+[INFO][08:19:02]: ----------------------round 11------------------------------
+[INFO][08:19:03]: aggregate weights (median)
+[INFO][08:19:03]: generate attack (trimmed_mean_ext)
+[INFO][08:19:03]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:19:03]: training acc: 0.6400,test acc: 0.4928, test_loss: 0.6901
+
+[INFO][08:19:03]: ----------------------round 12------------------------------
+[INFO][08:19:04]: aggregate weights (median)
+[INFO][08:19:04]: generate attack (trimmed_mean_ext)
+[INFO][08:19:04]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:19:04]: training acc: 0.6880,test acc: 0.4493, test_loss: 0.6904
+
+[INFO][08:19:04]: ----------------------round 13------------------------------
+[INFO][08:19:05]: aggregate weights (median)
+[INFO][08:19:05]: generate attack (trimmed_mean_ext)
+[INFO][08:19:05]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:19:05]: training acc: 0.6620,test acc: 0.4493, test_loss: 0.6905
+
+[INFO][08:19:05]: ----------------------round 14------------------------------
+[INFO][08:19:06]: aggregate weights (median)
+[INFO][08:19:06]: generate attack (trimmed_mean_ext)
+[INFO][08:19:06]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:19:07]: training acc: 0.6540,test acc: 0.4493, test_loss: 0.6905
+
+[INFO][08:19:07]: ----------------------round 15------------------------------
+[INFO][08:19:08]: aggregate weights (median)
+[INFO][08:19:08]: generate attack (trimmed_mean_ext)
+[INFO][08:19:08]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:19:08]: training acc: 0.6460,test acc: 0.5217, test_loss: 0.6899
+
+[INFO][08:19:08]: ----------------------round 16------------------------------
+[INFO][08:19:09]: aggregate weights (median)
+[INFO][08:19:09]: generate attack (trimmed_mean_ext)
+[INFO][08:19:09]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:19:09]: training acc: 0.6940,test acc: 0.4638, test_loss: 0.6903
+
+[INFO][08:19:09]: ----------------------round 17------------------------------
+[INFO][08:19:10]: aggregate weights (median)
+[INFO][08:19:10]: generate attack (trimmed_mean_ext)
+[INFO][08:19:10]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:19:10]: training acc: 0.6660,test acc: 0.4493, test_loss: 0.6904
+
+[INFO][08:19:10]: ----------------------round 18------------------------------
+[INFO][08:19:11]: aggregate weights (median)
+[INFO][08:19:11]: generate attack (trimmed_mean_ext)
+[INFO][08:19:11]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:19:11]: training acc: 0.6560,test acc: 0.5072, test_loss: 0.6899
+
+[INFO][08:19:11]: ----------------------round 19------------------------------
+[INFO][08:19:13]: aggregate weights (median)
+[INFO][08:19:13]: generate attack (trimmed_mean_ext)
+[INFO][08:19:13]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:19:13]: training acc: 0.6940,test acc: 0.4783, test_loss: 0.6902
+
+[INFO][08:19:13]: ----------------------round 20------------------------------
+[INFO][08:19:14]: aggregate weights (median)
+[INFO][08:19:14]: generate attack (trimmed_mean_ext)
+[INFO][08:19:14]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:19:14]: training acc: 0.6760,test acc: 0.4493, test_loss: 0.6905
+
+[INFO][08:19:14]: ----------------------round 21------------------------------
+[INFO][08:19:15]: aggregate weights (median)
+[INFO][08:19:15]: generate attack (trimmed_mean_ext)
+[INFO][08:19:15]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:19:15]: training acc: 0.6540,test acc: 0.4493, test_loss: 0.6905
+
+[INFO][08:19:15]: ----------------------round 22------------------------------
+[INFO][08:19:16]: aggregate weights (median)
+[INFO][08:19:16]: generate attack (trimmed_mean_ext)
+[INFO][08:19:16]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:19:16]: training acc: 0.6440,test acc: 0.5072, test_loss: 0.6899
+
+[INFO][08:19:16]: ----------------------round 23------------------------------
+[INFO][08:19:18]: aggregate weights (median)
+[INFO][08:19:18]: generate attack (trimmed_mean_ext)
+[INFO][08:19:18]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:19:18]: training acc: 0.6940,test acc: 0.4638, test_loss: 0.6903
+
+[INFO][08:19:18]: ----------------------round 24------------------------------
+[INFO][08:19:19]: aggregate weights (median)
+[INFO][08:19:19]: generate attack (trimmed_mean_ext)
+[INFO][08:19:19]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:19:19]: training acc: 0.6680,test acc: 0.4493, test_loss: 0.6904
+
+[INFO][08:19:19]: ----------------------round 25------------------------------
+[INFO][08:19:20]: aggregate weights (median)
+[INFO][08:19:20]: generate attack (trimmed_mean_ext)
+[INFO][08:19:20]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:19:20]: training acc: 0.6560,test acc: 0.4493, test_loss: 0.6905
+
+[INFO][08:19:20]: ----------------------round 26------------------------------
+[INFO][08:19:21]: aggregate weights (median)
+[INFO][08:19:21]: generate attack (trimmed_mean_ext)
+[INFO][08:19:21]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:19:21]: training acc: 0.6460,test acc: 0.5072, test_loss: 0.6900
+
+[INFO][08:19:21]: ----------------------round 27------------------------------
+[INFO][08:19:23]: aggregate weights (median)
+[INFO][08:19:23]: generate attack (trimmed_mean_ext)
+[INFO][08:19:23]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:19:23]: training acc: 0.6940,test acc: 0.4638, test_loss: 0.6903
+
+[INFO][08:19:23]: ----------------------round 28------------------------------
+[INFO][08:19:24]: aggregate weights (median)
+[INFO][08:19:24]: generate attack (trimmed_mean_ext)
+[INFO][08:19:24]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:19:24]: training acc: 0.6680,test acc: 0.4493, test_loss: 0.6905
+
+[INFO][08:19:24]: ----------------------round 29------------------------------
+[INFO][08:19:25]: aggregate weights (median)
+[INFO][08:19:25]: generate attack (trimmed_mean_ext)
+[INFO][08:19:25]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:19:25]: training acc: 0.6480,test acc: 0.4493, test_loss: 0.6903
+
+[INFO][08:19:25]: ----------------------round 30------------------------------
+[INFO][08:19:26]: aggregate weights (median)
+[INFO][08:19:26]: generate attack (trimmed_mean_ext)
+[INFO][08:19:26]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:19:26]: training acc: 0.6480,test acc: 0.4493, test_loss: 0.6905
+
+[INFO][08:19:26]: ----------------------round 31------------------------------
+[INFO][08:19:27]: aggregate weights (median)
+[INFO][08:19:27]: generate attack (trimmed_mean_ext)
+[INFO][08:19:27]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:19:27]: training acc: 0.6460,test acc: 0.5072, test_loss: 0.6899
+
+[INFO][08:19:27]: ----------------------round 32------------------------------
+[INFO][08:19:29]: aggregate weights (median)
+[INFO][08:19:29]: generate attack (trimmed_mean_ext)
+[INFO][08:19:29]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:19:29]: training acc: 0.6940,test acc: 0.4638, test_loss: 0.6903
+
+[INFO][08:19:29]: ----------------------round 33------------------------------
+[INFO][08:19:30]: aggregate weights (median)
+[INFO][08:19:30]: generate attack (trimmed_mean_ext)
+[INFO][08:19:30]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:19:30]: training acc: 0.6620,test acc: 0.4493, test_loss: 0.6906
+
+[INFO][08:19:30]: ----------------------round 34------------------------------
+[INFO][08:19:31]: aggregate weights (median)
+[INFO][08:19:31]: generate attack (trimmed_mean_ext)
+[INFO][08:19:31]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:19:31]: training acc: 0.6400,test acc: 0.5072, test_loss: 0.6900
+
+[INFO][08:19:31]: ----------------------round 35------------------------------
+[INFO][08:19:32]: aggregate weights (median)
+[INFO][08:19:32]: generate attack (trimmed_mean_ext)
+[INFO][08:19:32]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:19:32]: training acc: 0.6880,test acc: 0.4638, test_loss: 0.6902
+
+[INFO][08:19:32]: ----------------------round 36------------------------------
+[INFO][08:19:34]: aggregate weights (median)
+[INFO][08:19:34]: generate attack (trimmed_mean_ext)
+[INFO][08:19:34]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:19:34]: training acc: 0.6740,test acc: 0.4493, test_loss: 0.6904
+
+[INFO][08:19:34]: ----------------------round 37------------------------------
+[INFO][08:19:35]: aggregate weights (median)
+[INFO][08:19:35]: generate attack (trimmed_mean_ext)
+[INFO][08:19:35]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:19:35]: training acc: 0.6560,test acc: 0.4348, test_loss: 0.6906
+
+[INFO][08:19:35]: ----------------------round 38------------------------------
+[INFO][08:19:36]: aggregate weights (median)
+[INFO][08:19:36]: generate attack (trimmed_mean_ext)
+[INFO][08:19:36]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:19:36]: training acc: 0.6380,test acc: 0.4928, test_loss: 0.6901
+
+[INFO][08:19:36]: ----------------------round 39------------------------------
+[INFO][08:19:37]: aggregate weights (median)
+[INFO][08:19:37]: generate attack (trimmed_mean_ext)
+[INFO][08:19:37]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:19:37]: training acc: 0.6840,test acc: 0.4493, test_loss: 0.6904
+
+[INFO][08:19:37]: ----------------------round 40------------------------------
+[INFO][08:19:39]: aggregate weights (median)
+[INFO][08:19:39]: generate attack (trimmed_mean_ext)
+[INFO][08:19:39]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:19:39]: training acc: 0.6600,test acc: 0.4493, test_loss: 0.6906
+
+[INFO][08:19:39]: ----------------------round 41------------------------------
+[INFO][08:19:40]: aggregate weights (median)
+[INFO][08:19:40]: generate attack (trimmed_mean_ext)
+[INFO][08:19:40]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:19:40]: training acc: 0.6400,test acc: 0.5072, test_loss: 0.6899
+
+[INFO][08:19:40]: ----------------------round 42------------------------------
+[INFO][08:19:41]: aggregate weights (median)
+[INFO][08:19:41]: generate attack (trimmed_mean_ext)
+[INFO][08:19:41]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:19:41]: training acc: 0.6940,test acc: 0.4493, test_loss: 0.6904
+
+[INFO][08:19:41]: ----------------------round 43------------------------------
+[INFO][08:19:42]: aggregate weights (median)
+[INFO][08:19:42]: generate attack (trimmed_mean_ext)
+[INFO][08:19:42]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:19:42]: training acc: 0.6560,test acc: 0.4493, test_loss: 0.6904
+
+[INFO][08:19:42]: ----------------------round 44------------------------------
+[INFO][08:19:44]: aggregate weights (median)
+[INFO][08:19:44]: generate attack (trimmed_mean_ext)
+[INFO][08:19:44]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:19:44]: training acc: 0.6560,test acc: 0.4493, test_loss: 0.6905
+
+[INFO][08:19:44]: ----------------------round 45------------------------------
+[INFO][08:19:45]: aggregate weights (median)
+[INFO][08:19:45]: generate attack (trimmed_mean_ext)
+[INFO][08:19:45]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:19:45]: training acc: 0.6520,test acc: 0.5072, test_loss: 0.6899
+
+[INFO][08:19:45]: ----------------------round 46------------------------------
+[INFO][08:19:46]: aggregate weights (median)
+[INFO][08:19:46]: generate attack (trimmed_mean_ext)
+[INFO][08:19:46]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:19:46]: training acc: 0.6940,test acc: 0.4493, test_loss: 0.6904
+
+[INFO][08:19:46]: ----------------------round 47------------------------------
+[INFO][08:19:47]: aggregate weights (median)
+[INFO][08:19:47]: generate attack (trimmed_mean_ext)
+[INFO][08:19:47]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:19:47]: training acc: 0.6580,test acc: 0.4493, test_loss: 0.6906
+
+[INFO][08:19:47]: ----------------------round 48------------------------------
+[INFO][08:19:48]: aggregate weights (median)
+[INFO][08:19:48]: generate attack (trimmed_mean_ext)
+[INFO][08:19:48]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:19:48]: training acc: 0.6460,test acc: 0.4493, test_loss: 0.6903
+
+[INFO][08:19:48]: ----------------------round 49------------------------------
+[INFO][08:19:50]: aggregate weights (median)
+[INFO][08:19:50]: generate attack (trimmed_mean_ext)
+[INFO][08:19:50]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:19:50]: training acc: 0.6480,test acc: 0.4493, test_loss: 0.6904
+
+[INFO][08:19:50]: ----------------------round 50------------------------------
+[INFO][08:19:51]: aggregate weights (median)
+[INFO][08:19:51]: generate attack (trimmed_mean_ext)
+[INFO][08:19:51]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:19:51]: training acc: 0.6480,test acc: 0.5217, test_loss: 0.6897
+
+[INFO][08:19:51]: ----------------------round 51------------------------------
+[INFO][08:19:52]: aggregate weights (median)
+[INFO][08:19:52]: generate attack (trimmed_mean_ext)
+[INFO][08:19:52]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:19:52]: training acc: 0.7040,test acc: 0.4783, test_loss: 0.6901
+
+[INFO][08:19:52]: ----------------------round 52------------------------------
+[INFO][08:19:53]: aggregate weights (median)
+[INFO][08:19:53]: generate attack (trimmed_mean_ext)
+[INFO][08:19:53]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:19:53]: training acc: 0.6760,test acc: 0.4493, test_loss: 0.6903
+
+[INFO][08:19:53]: ----------------------round 53------------------------------
+[INFO][08:19:55]: aggregate weights (median)
+[INFO][08:19:55]: generate attack (trimmed_mean_ext)
+[INFO][08:19:55]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:19:55]: training acc: 0.6600,test acc: 0.4493, test_loss: 0.6905
+
+[INFO][08:19:55]: ----------------------round 54------------------------------
+[INFO][08:19:56]: aggregate weights (median)
+[INFO][08:19:56]: generate attack (trimmed_mean_ext)
+[INFO][08:19:56]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:19:56]: training acc: 0.6440,test acc: 0.4928, test_loss: 0.6900
+
+[INFO][08:19:56]: ----------------------round 55------------------------------
+[INFO][08:19:57]: aggregate weights (median)
+[INFO][08:19:57]: generate attack (trimmed_mean_ext)
+[INFO][08:19:57]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:19:57]: training acc: 0.6880,test acc: 0.4638, test_loss: 0.6903
+
+[INFO][08:19:57]: ----------------------round 56------------------------------
+[INFO][08:19:58]: aggregate weights (median)
+[INFO][08:19:58]: generate attack (trimmed_mean_ext)
+[INFO][08:19:58]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:19:58]: training acc: 0.6620,test acc: 0.4493, test_loss: 0.6905
+
+[INFO][08:19:58]: ----------------------round 57------------------------------
+[INFO][08:20:00]: aggregate weights (median)
+[INFO][08:20:00]: generate attack (trimmed_mean_ext)
+[INFO][08:20:00]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:20:00]: training acc: 0.6480,test acc: 0.4493, test_loss: 0.6904
+
+[INFO][08:20:00]: ----------------------round 58------------------------------
+[INFO][08:20:01]: aggregate weights (median)
+[INFO][08:20:01]: generate attack (trimmed_mean_ext)
+[INFO][08:20:01]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:20:01]: training acc: 0.6540,test acc: 0.5072, test_loss: 0.6899
+
+[INFO][08:20:01]: ----------------------round 59------------------------------
+[INFO][08:20:02]: aggregate weights (median)
+[INFO][08:20:02]: generate attack (trimmed_mean_ext)
+[INFO][08:20:02]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:20:02]: training acc: 0.6940,test acc: 0.4638, test_loss: 0.6902
+
+[INFO][08:20:02]: ----------------------round 60------------------------------
+[INFO][08:20:03]: aggregate weights (median)
+[INFO][08:20:03]: generate attack (trimmed_mean_ext)
+[INFO][08:20:03]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:20:03]: training acc: 0.6720,test acc: 0.4493, test_loss: 0.6904
+
+[INFO][08:20:03]: ----------------------round 61------------------------------
+[INFO][08:20:04]: aggregate weights (median)
+[INFO][08:20:04]: generate attack (trimmed_mean_ext)
+[INFO][08:20:04]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:20:04]: training acc: 0.6560,test acc: 0.4493, test_loss: 0.6905
+
+[INFO][08:20:04]: ----------------------round 62------------------------------
+[INFO][08:20:06]: aggregate weights (median)
+[INFO][08:20:06]: generate attack (trimmed_mean_ext)
+[INFO][08:20:06]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:20:06]: training acc: 0.6420,test acc: 0.5072, test_loss: 0.6900
+
+[INFO][08:20:06]: ----------------------round 63------------------------------
+[INFO][08:20:07]: aggregate weights (median)
+[INFO][08:20:07]: generate attack (trimmed_mean_ext)
+[INFO][08:20:07]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:20:07]: training acc: 0.6880,test acc: 0.4638, test_loss: 0.6903
+
+[INFO][08:20:07]: ----------------------round 64------------------------------
+[INFO][08:20:08]: aggregate weights (median)
+[INFO][08:20:08]: generate attack (trimmed_mean_ext)
+[INFO][08:20:08]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:20:08]: training acc: 0.6660,test acc: 0.4493, test_loss: 0.6906
+
+[INFO][08:20:08]: ----------------------round 65------------------------------
+[INFO][08:20:09]: aggregate weights (median)
+[INFO][08:20:09]: generate attack (trimmed_mean_ext)
+[INFO][08:20:09]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:20:09]: training acc: 0.6460,test acc: 0.4203, test_loss: 0.6907
+
+[INFO][08:20:09]: ----------------------round 66------------------------------
+[INFO][08:20:11]: aggregate weights (median)
+[INFO][08:20:11]: generate attack (trimmed_mean_ext)
+[INFO][08:20:11]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:20:11]: training acc: 0.6340,test acc: 0.5072, test_loss: 0.6900
+
+[INFO][08:20:11]: ----------------------round 67------------------------------
+[INFO][08:20:12]: aggregate weights (median)
+[INFO][08:20:12]: generate attack (trimmed_mean_ext)
+[INFO][08:20:12]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:20:12]: training acc: 0.6940,test acc: 0.4493, test_loss: 0.6904
+
+[INFO][08:20:12]: ----------------------round 68------------------------------
+[INFO][08:20:13]: aggregate weights (median)
+[INFO][08:20:13]: generate attack (trimmed_mean_ext)
+[INFO][08:20:13]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:20:13]: training acc: 0.6560,test acc: 0.4493, test_loss: 0.6905
+
+[INFO][08:20:13]: ----------------------round 69------------------------------
+[INFO][08:20:14]: aggregate weights (median)
+[INFO][08:20:14]: generate attack (trimmed_mean_ext)
+[INFO][08:20:14]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:20:14]: training acc: 0.6540,test acc: 0.4493, test_loss: 0.6905
+
+[INFO][08:20:14]: ----------------------round 70------------------------------
+[INFO][08:20:16]: aggregate weights (median)
+[INFO][08:20:16]: generate attack (trimmed_mean_ext)
+[INFO][08:20:16]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:20:16]: training acc: 0.6460,test acc: 0.5072, test_loss: 0.6899
+
+[INFO][08:20:16]: ----------------------round 71------------------------------
+[INFO][08:20:17]: aggregate weights (median)
+[INFO][08:20:17]: generate attack (trimmed_mean_ext)
+[INFO][08:20:17]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:20:17]: training acc: 0.6940,test acc: 0.4638, test_loss: 0.6903
+
+[INFO][08:20:17]: ----------------------round 72------------------------------
+[INFO][08:20:18]: aggregate weights (median)
+[INFO][08:20:18]: generate attack (trimmed_mean_ext)
+[INFO][08:20:18]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:20:18]: training acc: 0.6660,test acc: 0.4493, test_loss: 0.6905
+
+[INFO][08:20:18]: ----------------------round 73------------------------------
+[INFO][08:20:19]: aggregate weights (median)
+[INFO][08:20:19]: generate attack (trimmed_mean_ext)
+[INFO][08:20:19]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:20:19]: training acc: 0.6500,test acc: 0.4493, test_loss: 0.6906
+
+[INFO][08:20:19]: ----------------------round 74------------------------------
+[INFO][08:20:21]: aggregate weights (median)
+[INFO][08:20:21]: generate attack (trimmed_mean_ext)
+[INFO][08:20:21]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:20:21]: training acc: 0.6400,test acc: 0.5072, test_loss: 0.6900
+
+[INFO][08:20:21]: ----------------------round 75------------------------------
+[INFO][08:20:22]: aggregate weights (median)
+[INFO][08:20:22]: generate attack (trimmed_mean_ext)
+[INFO][08:20:22]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:20:22]: training acc: 0.6900,test acc: 0.4493, test_loss: 0.6904
+
+[INFO][08:20:22]: ----------------------round 76------------------------------
+[INFO][08:20:23]: aggregate weights (median)
+[INFO][08:20:23]: generate attack (trimmed_mean_ext)
+[INFO][08:20:23]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:20:23]: training acc: 0.6560,test acc: 0.4493, test_loss: 0.6905
+
+[INFO][08:20:23]: ----------------------round 77------------------------------
+[INFO][08:20:24]: aggregate weights (median)
+[INFO][08:20:24]: generate attack (trimmed_mean_ext)
+[INFO][08:20:24]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:20:24]: training acc: 0.6520,test acc: 0.5072, test_loss: 0.6900
+
+[INFO][08:20:24]: ----------------------round 78------------------------------
+[INFO][08:20:26]: aggregate weights (median)
+[INFO][08:20:26]: generate attack (trimmed_mean_ext)
+[INFO][08:20:26]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:20:26]: training acc: 0.6920,test acc: 0.4493, test_loss: 0.6904
+
+[INFO][08:20:26]: ----------------------round 79------------------------------
+[INFO][08:20:27]: aggregate weights (median)
+[INFO][08:20:27]: generate attack (trimmed_mean_ext)
+[INFO][08:20:27]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:20:27]: training acc: 0.6580,test acc: 0.4493, test_loss: 0.6906
+
+[INFO][08:20:27]: ----------------------round 80------------------------------
+[INFO][08:20:28]: aggregate weights (median)
+[INFO][08:20:28]: generate attack (trimmed_mean_ext)
+[INFO][08:20:28]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:20:28]: training acc: 0.6380,test acc: 0.5072, test_loss: 0.6900
+
+[INFO][08:20:28]: ----------------------round 81------------------------------
+[INFO][08:20:29]: aggregate weights (median)
+[INFO][08:20:29]: generate attack (trimmed_mean_ext)
+[INFO][08:20:29]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:20:29]: training acc: 0.6880,test acc: 0.4493, test_loss: 0.6904
+
+[INFO][08:20:29]: ----------------------round 82------------------------------
+[INFO][08:20:30]: aggregate weights (median)
+[INFO][08:20:30]: generate attack (trimmed_mean_ext)
+[INFO][08:20:30]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:20:30]: training acc: 0.6560,test acc: 0.4493, test_loss: 0.6906
+
+[INFO][08:20:30]: ----------------------round 83------------------------------
+[INFO][08:20:32]: aggregate weights (median)
+[INFO][08:20:32]: generate attack (trimmed_mean_ext)
+[INFO][08:20:32]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:20:32]: training acc: 0.6380,test acc: 0.5072, test_loss: 0.6899
+
+[INFO][08:20:32]: ----------------------round 84------------------------------
+[INFO][08:20:33]: aggregate weights (median)
+[INFO][08:20:33]: generate attack (trimmed_mean_ext)
+[INFO][08:20:33]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:20:33]: training acc: 0.6940,test acc: 0.4638, test_loss: 0.6902
+
+[INFO][08:20:33]: ----------------------round 85------------------------------
+[INFO][08:20:34]: aggregate weights (median)
+[INFO][08:20:34]: generate attack (trimmed_mean_ext)
+[INFO][08:20:34]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:20:34]: training acc: 0.6740,test acc: 0.4493, test_loss: 0.6904
+
+[INFO][08:20:34]: ----------------------round 86------------------------------
+[INFO][08:20:35]: aggregate weights (median)
+[INFO][08:20:35]: generate attack (trimmed_mean_ext)
+[INFO][08:20:35]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:20:35]: training acc: 0.6560,test acc: 0.4493, test_loss: 0.6904
+
+[INFO][08:20:35]: ----------------------round 87------------------------------
+[INFO][08:20:37]: aggregate weights (median)
+[INFO][08:20:37]: generate attack (trimmed_mean_ext)
+[INFO][08:20:37]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:20:37]: training acc: 0.6520,test acc: 0.5072, test_loss: 0.6900
+
+[INFO][08:20:37]: ----------------------round 88------------------------------
+[INFO][08:20:38]: aggregate weights (median)
+[INFO][08:20:38]: generate attack (trimmed_mean_ext)
+[INFO][08:20:38]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:20:38]: training acc: 0.6940,test acc: 0.4638, test_loss: 0.6903
+
+[INFO][08:20:38]: ----------------------round 89------------------------------
+[INFO][08:20:39]: aggregate weights (median)
+[INFO][08:20:39]: generate attack (trimmed_mean_ext)
+[INFO][08:20:39]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:20:39]: training acc: 0.6700,test acc: 0.4493, test_loss: 0.6904
+
+[INFO][08:20:39]: ----------------------round 90------------------------------
+[INFO][08:20:40]: aggregate weights (median)
+[INFO][08:20:40]: generate attack (trimmed_mean_ext)
+[INFO][08:20:40]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:20:40]: training acc: 0.6560,test acc: 0.4493, test_loss: 0.6906
+
+[INFO][08:20:40]: ----------------------round 91------------------------------
+[INFO][08:20:42]: aggregate weights (median)
+[INFO][08:20:42]: generate attack (trimmed_mean_ext)
+[INFO][08:20:42]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:20:42]: training acc: 0.6400,test acc: 0.5072, test_loss: 0.6900
+
+[INFO][08:20:42]: ----------------------round 92------------------------------
+[INFO][08:20:43]: aggregate weights (median)
+[INFO][08:20:43]: generate attack (trimmed_mean_ext)
+[INFO][08:20:43]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:20:43]: training acc: 0.6900,test acc: 0.4493, test_loss: 0.6904
+
+[INFO][08:20:43]: ----------------------round 93------------------------------
+[INFO][08:20:44]: aggregate weights (median)
+[INFO][08:20:44]: generate attack (trimmed_mean_ext)
+[INFO][08:20:44]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:20:44]: training acc: 0.6560,test acc: 0.4493, test_loss: 0.6906
+
+[INFO][08:20:44]: ----------------------round 94------------------------------
+[INFO][08:20:45]: aggregate weights (median)
+[INFO][08:20:45]: generate attack (trimmed_mean_ext)
+[INFO][08:20:45]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:20:45]: training acc: 0.6420,test acc: 0.4493, test_loss: 0.6904
+
+[INFO][08:20:45]: ----------------------round 95------------------------------
+[INFO][08:20:47]: aggregate weights (median)
+[INFO][08:20:47]: generate attack (trimmed_mean_ext)
+[INFO][08:20:47]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:20:47]: training acc: 0.6520,test acc: 0.5072, test_loss: 0.6900
+
+[INFO][08:20:47]: ----------------------round 96------------------------------
+[INFO][08:20:48]: aggregate weights (median)
+[INFO][08:20:48]: generate attack (trimmed_mean_ext)
+[INFO][08:20:48]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:20:48]: training acc: 0.6880,test acc: 0.4638, test_loss: 0.6903
+
+[INFO][08:20:48]: ----------------------round 97------------------------------
+[INFO][08:20:49]: aggregate weights (median)
+[INFO][08:20:49]: generate attack (trimmed_mean_ext)
+[INFO][08:20:49]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:20:49]: training acc: 0.6680,test acc: 0.4493, test_loss: 0.6904
+
+[INFO][08:20:49]: ----------------------round 98------------------------------
+[INFO][08:20:50]: aggregate weights (median)
+[INFO][08:20:50]: generate attack (trimmed_mean_ext)
+[INFO][08:20:50]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:20:50]: training acc: 0.6540,test acc: 0.4203, test_loss: 0.6907
+
+[INFO][08:20:50]: ----------------------round 99------------------------------
+[INFO][08:20:51]: aggregate weights (median)
+[INFO][08:20:51]: generate attack (trimmed_mean_ext)
+[INFO][08:20:51]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:20:51]: training acc: 0.6360,test acc: 0.4928, test_loss: 0.6901
+
+[INFO][08:20:51]: ----------------------round 100------------------------------
+[INFO][08:20:53]: aggregate weights (median)
+[INFO][08:20:53]: generate attack (trimmed_mean_ext)
+[INFO][08:20:53]: by distributions: Gaussian (47978 samples),Log Gaussian (36294 samples)
+[INFO][08:20:53]: training acc: 0.6880,test acc: 0.4638, test_loss: 0.6903
+
