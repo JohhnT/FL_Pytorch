@@ -313,12 +313,12 @@ class Client:
     def compute_optimized_lambda(self, directions):
         """
         Formula: 
-            max <lambda> lambda
+        max <lambda> lambda
             subject to w1' = Krum(w1', w1, ..., wc),
                        w1' = wRe - lambda * s
         """
         upperbound, benign_weights = self.compute_lambda_upperbound()
-        threshold = 0.00001
+        threshold = 0.0001
         lamda = upperbound
 
         # retreive global model weights
