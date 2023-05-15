@@ -22,7 +22,7 @@ class FLDataset:
     def download_data(self):
         pass
 
-    def load_data(self, IID=True):
+    def load_data(self, IID=True, IID_degree=0.2):
         self.trainset, self.testset = self.download_data()
         if self.trainset is not None and self.testset is not None:
             total_clients = self.config.clients.total
@@ -42,23 +42,30 @@ class FLDataset:
                 if sum(length) != len(self.trainset):
                     raise ValueError(
                         "Sum of input lengths does not equal the length of the input dataset!")
-                index = []
-                for i in range(10):
-                    index.append([])
 
-                i = 0
+                num_samples = len(self.trainset)
+                # number of non-iid samples
+                num_non_iid_samples = int(num_samples * IID_degree)
+
+                index = {}
                 for img, label in self.trainset:
-                    index[label].append(i)
-                    i += 1
+                    if label not in index:
+                        index[label] = []
+                    index[label].append(len(index[label]))
 
-                indices = np.array(
-                    [elem for c_list in index for elem in c_list]).reshape(-1, 200)
+                num_classes = len(index)
+
+                indices = np.array([elem for c_list in index.values()
+                                   for elem in c_list]).reshape(-1, 200)
 
                 np.random.shuffle(indices)
                 indices = indices.flatten()
                 # print(indices.shape)
 
-                spilted_train = [Subset(self.trainset, indices[offset - length:offset]) for offset, length in
+                # select non-iid
+                non_iid_indices = indices[:num_non_iid_samples]
+
+                spilted_train = [Subset(self.trainset, non_iid_indices[offset - length:offset]) for offset, length in
                                  zip(_accumulate(length), length)]
                 # print(len(spilted_train))
             return spilted_train, self.testset
