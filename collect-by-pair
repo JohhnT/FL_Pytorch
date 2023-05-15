@@ -7,6 +7,6 @@ experiment_ext=$1-ext
 ./collect.sh "$experiment_ext"
 
 mkdir "plots/$experiment"
-./plot-by-pair $experiment training_acc
-./plot-by-pair $experiment test_acc
-./plot-by-pair $experiment test_loss
+./plot-by-pair $experiment "training acc"
+./plot-by-pair $experiment "test acc"
+./plot-by-pair $experiment "test loss"
