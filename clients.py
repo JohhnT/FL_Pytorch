@@ -318,7 +318,7 @@ class Client:
                        w1' = wRe - lambda * s
         """
         upperbound, benign_weights = self.compute_lambda_upperbound()
-        threshold = 0.0001
+        threshold = 0.00001
         lamda = upperbound
 
         # retreive global model weights
